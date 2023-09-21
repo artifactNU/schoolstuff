@@ -1,0 +1,59 @@
+                                    NAVIGERA
+pwd                                 - print working directory
+cd                                  - hem katalog
+cd /                                - root katalog
+cd -                                - senaste katalog
+cd ..                               - katalogen ovanför
+cd ../..                            - katalogen två steg ovanför
+cd /home/user/katalog               - absolut sökväg
+ls                                  - list/dir "ls <kat>"
+ls -a                               - visar alla filer inkl dolda (.hej.txt = dold)
+mv från /till                       - flytta
+mv orginal nyttnamn                 - byt namn
+cp från /till/nyttnamn              - kopiera
+cp -r från /till/nyttnamn           - kopierar hela filträdet
+rm <filnamn>                        - radera fil
+rmdir <katalog>                     - radera tom katalog
+rm -r <katalog>                     - radera katalog med inehåll
+whoami                              - användarnamn
+nano <filnamn>                      - skapa/titta i textdokument
+echo $VAR                           - skriv ut variable
+echo <exempeltext> > name.txt       - skapa txt med text direkt i terminal
+mkdir <katalog>                     - skapa katalog
+mkdir x/y                           - skapa katalog y i katalog x
+mkdir -p a/b/c                      - skapa katalogträd
+tree                                - översikt av katalogträd
+cat <filnamn>                       - titta i fil
+less <filnamn>                      - titta i lång fil - g/G home/end | /sökord söker i filen n/b för nästa/förra | q för quit
+more <filnamn>                      - titta i fil <-less is more
+clear & ctrl + l                    - rensa terminalen
+touch <filnamn>                     - skapa en tom fil
+
+                                    SÖKA
+grep <sökord> <filnamn>             - sök i specifik fil
+grep <sökord> <filA> <filB> <filC>  - sök i flera filer
+grep <sökord> *                     - sök i alla filer | * betyder vilken fil som helst
+grep -r <sökord> <katalog>          - sök i specifik katalog
+find . -iname '*<filnamn>*'         - visar alla filnamn som innehåller 'filnamn' i nuvarande katalog pga '.'
+locate <sökord>                     - sök i datorns databas | uppdatera denna med 'sudo updatedb'
+
+
+                                    INSTALLERA
+sudo apt install <paket>            - installera paket
+sudo apt update/upgrade             - uppdatera/uppgradera
+
+sudo apt install tree               - översikt av kataloger
+sudo apt install locate             - söka i datorns databas
+sudo apt install tldr               - smart manual
+tldr -u                             - uppdatera tldr
+
+
+                                    HJÄLP
+man <kommando>                      - manual för specifikt kommando
+info <kommando>                     - alternativ manual
+help <kommando>                     - yttligare en manual
+<kommando> --help                   - -..-
+<kommando> -h                       - -..-
+<kommando> -?                       - -..-
+<kommando> /?                       - -..-
+<kommando> utan argument            - -..-
