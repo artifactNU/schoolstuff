@@ -13,10 +13,12 @@ mv orginal nyttnamn                 - byt namn
 cp från /till/nyttnamn              - kopiera
 cp -r från /till/nyttnamn           - kopierar hela filträdet
 rm <filnamn>                        - radera fil
+shred <filnamn>                     - radera fil permanent
 rmdir <katalog>                     - radera tom katalog
-rm -r <katalog>                     - radera katalog med inehåll
+rm -r <katalog>                     - radera katalog med innehåll
 whoami                              - användarnamn
 nano <filnamn>                      - skapa/titta i textdokument
+vim <filnamn>                       - skapa/titta i textdokument
 echo $VAR                           - skriv ut variable
 echo <exempeltext> > name.txt       - skapa txt med text direkt i terminal
 mkdir <katalog>                     - skapa katalog
@@ -28,6 +30,8 @@ less <filnamn>                      - titta i lång fil - g/G home/end | /sökor
 more <filnamn>                      - titta i fil <-less is more
 clear & ctrl + l                    - rensa terminalen
 touch <filnamn>                     - skapa en tom fil
+touch -d tomorrow <filnamn>         - skapa en tom fil från imorgon
+ln -s <filnamn> <länknamn>          - skapa en länk till fil
 
                                     SÖKA
 grep <sökord> <filnamn>             - sök i specifik fil
@@ -36,6 +40,7 @@ grep <sökord> *                     - sök i alla filer | * betyder vilken fil 
 grep -r <sökord> <katalog>          - sök i specifik katalog
 find . -iname '*<filnamn>*'         - visar alla filnamn som innehåller 'filnamn' i nuvarande katalog pga '.'
 locate <sökord>                     - sök i datorns databas | uppdatera denna med 'sudo updatedb'
+which <kommando>                    - var finns kommandot
 
 
                                     INSTALLERA
@@ -45,15 +50,40 @@ sudo apt update/upgrade             - uppdatera/uppgradera
 sudo apt install tree               - översikt av kataloger
 sudo apt install locate             - söka i datorns databas
 sudo apt install tldr               - smart manual
+sudo apt install finger             - visa info om användare
 tldr -u                             - uppdatera tldr
+wget <url>                          - ladda ner fil från internet
+curl <url> > <filnamn>              - ladda ner fil från internet och spara som filnamn
+curl <url> | less                   - ladda ner fil från internet och visa i terminalen
+zip <filnamn> <filnamn>             - skapa zip
+unzip <filnamn>                     - packa upp zip
 
 
                                     HJÄLP
 man <kommando>                      - manual för specifikt kommando
 info <kommando>                     - alternativ manual
 help <kommando>                     - yttligare en manual
+whatis <kommando>                   - kort beskrivning av kommando
 <kommando> --help                   - -..-
 <kommando> -h                       - -..-
 <kommando> -?                       - -..-
 <kommando> /?                       - -..-
 <kommando> utan argument            - -..-
+
+                                    NÄTVERK
+ping <ip/domän>                     - pinga ip
+ping -c <antal> <ip/domän>          - pinga ip/domän <antal> gånger
+ssh username@ipaddress              - ssh in i server
+ssh -p <port> username@ipaddress    - ssh in i server med annan port
+ssh -i <key> username@ipaddress     - ssh in i server med annan key
+
+                                    ANVÄNDARE
+sudo adduser <username>             - skapa användare
+sudo deluser <username>             - radera användare
+sudo passwd <username>              - ändra lösenord för användare
+sudo usermod -aG sudo <username>    - lägg till användare i sudo gruppen
+sudo usermod -aG <group> <username> - lägg till användare i grupp
+su <username>                       - byt användare
+sudo passwd <username>              - ändra lösenord för användare
+passwd                              - ändra lösenord för inloggad användare
+finger <username>                   - visa info om användare
