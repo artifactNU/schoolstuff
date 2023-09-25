@@ -35,6 +35,7 @@ ln -s <filnamn> <länknamn>          - skapa en länk till fil
 history <nummer>                    - visa terminalhistorik
 
                                     SÖKA
+apt-cache search <paket>            - sök efter paket
 grep <sökord> <filnamn>             - sök i specifik fil
 grep <sökord> <filA> <filB> <filC>  - sök i flera filer
 grep <sökord> *                     - sök i alla filer | * betyder vilken fil som helst
@@ -48,11 +49,13 @@ which <kommando>                    - var finns kommandot
 sudo apt install <paket>            - installera paket
 sudo apt update/upgrade             - uppdatera/uppgradera
 sudo apt remove <paket>             - radera paket
+sudo apt purge <paket>              - radera paket inkl config
+sudo apt autoremove                 - radera oanvända paket
 
-sudo apt install tree               - översikt av kataloger
-sudo apt install locate             - söka i datorns databas
-sudo apt install tldr               - smart manual
-sudo apt install finger             - visa info om användare
+apt-mark showmanual                 - visa manuellt installerade paket
+apt-mark showauto                   - visa automatiskt installerade paket
+
+
 tldr -u                             - uppdatera tldr
 wget <url>                          - ladda ner fil från internet
 curl <url> > <filnamn>              - ladda ner fil från internet och spara som filnamn
@@ -89,3 +92,23 @@ su <username>                       - byt användare
 sudo passwd <username>              - ändra lösenord för användare
 passwd                              - ändra lösenord för inloggad användare
 finger <username>                   - visa info om användare
+
+                                    PAKET
+sudo apt install tree               - översikt av kataloger
+sudo apt install locate             - söka i datorns databas
+sudo apt install tldr               - smart manual
+sudo apt install finger             - visa info om användare
+sudo apt install curl               - ladda ner fil från internet
+sudo apt install wget               - ladda ner fil från internet
+sudo apt install zip                - skapa zip
+sudo apt install unzip              - packa upp zip
+sudo apt install htop               - översikt av processer
+sudo apt install nmap               - nätverksöversikt
+sudo apt install net-tools          - nätverksöversikt
+sudo apt install openssh-server     - ssh server
+sudo apt install openssh-client     - ssh client
+sudo apt install ssh                - ssh client
+sudo apt install sshpass            - ssh utan lösenord
+sudo apt install git                - versionshantering
+sudo apt install vim                - texteditor
+sudo apt install nano               - texteditor
