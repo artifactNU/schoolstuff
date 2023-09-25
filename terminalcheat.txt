@@ -1,118 +1,139 @@
-                                    NAVIGERA
-pwd                                 - print working directory
-cd                                  - hem katalog
-cd /                                - root katalog
-cd -                                - senaste katalog
-cd ..                               - katalogen ovanför
-cd ../..                            - katalogen två steg ovanför
-cd /home/user/katalog               - absolut sökväg
-ls                                  - list/dir "ls <kat>"
-ls -a                               - visar alla filer inkl dolda (.hej.txt = dold)
-mv från /till                       - flytta
-mv orginal nyttnamn                 - byt namn
-cp från /till/nyttnamn              - kopiera
-cp -r från /till/nyttnamn           - kopierar hela filträdet
-rm <filnamn>                        - radera fil
-shred <filnamn>                     - radera fil permanent
-rmdir <katalog>                     - radera tom katalog
-rm -r <katalog>                     - radera katalog med innehåll
-whoami                              - användarnamn
-nano <filnamn>                      - skapa/titta i textdokument
-vim <filnamn>                       - skapa/titta i textdokument
-echo $VAR                           - skriv ut variable
-echo <exempeltext> > name.txt       - skapa txt med text direkt i terminal
-mkdir <katalog>                     - skapa katalog
-mkdir x/y                           - skapa katalog y i katalog x
-mkdir -p a/b/c                      - skapa katalogträd
-tree                                - översikt av katalogträd
-cat <filnamn>                       - titta i fil
-less <filnamn>                      - titta i lång fil - g/G home/end | /sökord söker i filen n/b för nästa/förra | q för quit
-more <filnamn>                      - titta i fil <-less is more
-clear & ctrl + l                    - rensa terminalen
-touch <filnamn>                     - skapa en tom fil
-touch -d tomorrow <filnamn>         - skapa en tom fil från imorgon
-ln -s <filnamn> <länknamn>          - skapa en länk till fil
-history <nummer>                    - visa terminalhistorik
+                                        NAVIGERA
+pwd                                     - print working directory
+cd                                      - hem katalog
+cd /                                    - root katalog
+cd -                                    - senaste katalog
+cd ..                                   - katalogen ovanför
+cd ../..                                - katalogen två steg ovanför
+cd /home/user/katalog                   - absolut sökväg
+ls                                      - list/dir "ls <kat>"
+ls -a                                   - visar alla filer inkl dolda (.hej.txt = dold)
+mv från /till                           - flytta
+mv orginal nyttnamn                     - byt namn
+cp från /till/nyttnamn                  - kopiera
+cp -r från /till/nyttnamn               - kopierar hela filträdet
+rm <filnamn>                            - radera fil
+shred <filnamn>                         - radera fil permanent
+rmdir <katalog>                         - radera tom katalog
+rm -r <katalog>                         - radera katalog med innehåll
+whoami                                  - användarnamn
+nano <filnamn>                          - skapa/titta i textdokument
+vim <filnamn>                           - skapa/titta i textdokument
+echo $VAR                               - skriv ut variable
+echo <exempeltext> > name.txt           - skapa txt med text direkt i terminal
+mkdir <katalog>                         - skapa katalog
+mkdir x/y                               - skapa katalog y i katalog x
+mkdir -p a/b/c                          - skapa katalogträd
+tree                                    - översikt av katalogträd
+cat <filnamn>                           - titta i fil
+less <filnamn>                          - titta i lång fil - g/G home/end | /sökord söker i filen n/b för nästa/förra | q för quit
+more <filnamn>                          - titta i fil <-less is more
+clear & ctrl + l                        - rensa terminalen
+touch <filnamn>                         - skapa en tom fil
+touch -d tomorrow <filnamn>             - skapa en tom fil från imorgon
+ln -s <filnamn> <länknamn>              - skapa en länk till fil
+history <nummer>                        - visa terminalhistorik
 
-                                    SÖKA
-apt-cache search <paket>            - sök efter paket
-apt-file search /path/to/file       - sök efter fil
-apt-file list <paket>               - lista filer i paket
+                                        SÖKA
+apt-cache search <paket>                - sök efter paket
+apt-file search /path/to/file           - sök efter fil
+apt-file list <paket>                   - lista filer i paket
 
-grep <sökord> <filnamn>             - sök i specifik fil
-grep <sökord> <filA> <filB> <filC>  - sök i flera filer
-grep <sökord> *                     - sök i alla filer | * betyder vilken fil som helst
-grep -r <sökord> <katalog>          - sök i specifik katalog
-find . -iname '*<filnamn>*'         - visar alla filnamn som innehåller 'filnamn' i nuvarande katalog pga '.'
-locate <sökord>                     - sök i datorns databas | uppdatera denna med 'sudo updatedb'
-which <kommando>                    - var finns kommandot
-
-
-                                    INSTALLERA
-sudo apt install <paket>            - installera paket
-sudo apt update/upgrade             - uppdatera/uppgradera
-sudo apt remove <paket>             - radera paket
-sudo apt purge <paket>              - radera paket inkl config
-sudo apt autoremove                 - radera oanvända paket
-
-apt-mark showmanual                 - visa manuellt installerade paket
-apt-mark showauto                   - visa automatiskt installerade paket
+grep <sökord> <filnamn>                 - sök i specifik fil
+grep <sökord> <filA> <filB> <filC>      - sök i flera filer
+grep <sökord> *                         - sök i alla filer | * betyder vilken fil som helst
+grep -r <sökord> <katalog>              - sök i specifik katalog
+find . -iname '*<filnamn>*'             - visar alla filnamn som innehåller 'filnamn' i nuvarande katalog pga '.'
+locate <sökord>                         - sök i datorns databas | uppdatera denna med 'sudo updatedb'
+which <kommando>                        - var finns kommandot
 
 
-tldr -u                             - uppdatera tldr
-wget <url>                          - ladda ner fil från internet
-curl <url> > <filnamn>              - ladda ner fil från internet och spara som filnamn
-curl <url> | less                   - ladda ner fil från internet och visa i terminalen
-zip <filnamn> <zipfilnamn>          - skapa zip
-unzip <filnamn>                     - packa upp zip
+                                        INSTALLERA
+sudo apt install <paket>                - installera paket
+sudo apt update/upgrade                 - uppdatera/uppgradera
+sudo apt remove <paket>                 - radera paket
+sudo apt purge <paket>                  - radera paket inkl config
+sudo apt autoremove                     - radera oanvända paket
+
+apt-mark showmanual                     - visa manuellt installerade paket
+apt-mark showauto                       - visa automatiskt installerade paket
 
 
-                                    HJÄLP
-man <kommando>                      - manual för specifikt kommando
-info <kommando>                     - alternativ manual
-help <kommando>                     - yttligare en manual
-whatis <kommando>                   - kort beskrivning av kommando
-<kommando> --help                   - -..-
-<kommando> -h                       - -..-
-<kommando> -?                       - -..-
-<kommando> /?                       - -..-
-<kommando> utan argument            - -..-
+tldr -u                                 - uppdatera tldr
+wget <url>                              - ladda ner fil från internet
+curl <url> > <filnamn>                  - ladda ner fil från internet och spara som filnamn
+curl <url> | less                       - ladda ner fil från internet och visa i terminalen
+zip <filnamn> <zipfilnamn>              - skapa zip
+unzip <filnamn>                         - packa upp zip
 
-                                    NÄTVERK
-ping <ip/domän>                     - pinga ip
-ping -c <antal> <ip/domän>          - pinga ip/domän <antal> gånger
-ssh username@ipaddress              - ssh in i server
-ssh -p <port> username@ipaddress    - ssh in i server med annan port
-ssh -i <key> username@ipaddress     - ssh in i server med annan key
 
-                                    ANVÄNDARE
-sudo adduser <username>             - skapa användare
-sudo deluser <username>             - radera användare
-sudo passwd <username>              - ändra lösenord för användare
-sudo usermod -aG sudo <username>    - lägg till användare i sudo gruppen
-sudo usermod -aG <group> <username> - lägg till användare i grupp
-su <username>                       - byt användare
-sudo passwd <username>              - ändra lösenord för användare
-passwd                              - ändra lösenord för inloggad användare
-finger <username>                   - visa info om användare
+                                        HJÄLP
+man <kommando>                          - manual för specifikt kommando
+info <kommando>                         - alternativ manual
+help <kommando>                         - yttligare en manual
+whatis <kommando>                       - kort beskrivning av kommando
+<kommando> --help                       - -..-
+<kommando> -h                           - -..-
+<kommando> -?                           - -..-
+<kommando> /?                           - -..-
+<kommando> utan argument                - -..-
 
-                                    PAKET
-sudo apt install tree               - översikt av kataloger
-sudo apt install locate             - söka i datorns databas
-sudo apt install tldr               - smart manual
-sudo apt install finger             - visa info om användare
-sudo apt install curl               - ladda ner fil från internet
-sudo apt install wget               - ladda ner fil från internet
-sudo apt install zip                - skapa zip
-sudo apt install unzip              - packa upp zip
-sudo apt install htop               - översikt av processer
-sudo apt install nmap               - nätverksöversikt
-sudo apt install net-tools          - nätverksöversikt
-sudo apt install openssh-server     - ssh server
-sudo apt install openssh-client     - ssh client
-sudo apt install ssh                - ssh client
-sudo apt install sshpass            - ssh utan lösenord
-sudo apt install git                - versionshantering
-sudo apt install vim                - texteditor
-sudo apt install nano               - texteditor
-sudo apt install apt-file           - söka efter filer
+                                        NÄTVERK
+ping <ip/domän>                         - pinga ip
+ping -c <antal> <ip/domän>              - pinga ip/domän <antal> gånger
+ssh username@ipaddress                  - ssh in i server
+ssh -p <port> username@ipaddress        - ssh in i server med annan port
+ssh -i <key> username@ipaddress         - ssh in i server med annan key
+
+                                        ANVÄNDARE
+sudo adduser <username>                 - skapa användare
+sudo deluser <username>                 - radera användare
+sudo passwd <username>                  - ändra lösenord för användare
+sudo usermod -aG sudo <username>        - lägg till användare i sudo gruppen
+sudo usermod -aG <group> <username>     - lägg till användare i grupp
+su <username>                           - byt användare
+sudo passwd <username>                  - ändra lösenord för användare
+passwd                                  - ändra lösenord för inloggad användare
+finger <username>                       - visa info om användare
+
+                                        RÄTTIGHETER
+ls -l <filnamn>                         - visa rättigheter för fil
+ls -ld <katalog>                        - visa rättigheter för katalog
+
+chmod <rättigheter> <filnamn>           - ändra rättigheter för fil
+chmod <rättigheter> <katalog>           - ändra rättigheter för katalog
+chmod -R <rättigheter> <katalog>        - ändra rättigheter för katalog och innehåll
+chmod --reference=<filnamn> <filnamn>   - ändra rättigheter för fil till samma som annan fil
+
+chown <username> <filnamn>              - ändra ägare för fil
+chown <username> <katalog>              - ändra ägare för katalog
+chown <username>:<group> <filnamn>      - ändra ägare och grupp för fil
+chown -R <username>:<group> <katalog>   - ändra ägare och grupp för katalog och innehåll
+chown --reference=<filnamn> <filnamn>   - ändra ägare för fil till samma som annan fil
+
+chgrp <group> <filnamn>                 - ändra grupp för fil
+chgrp <group> <katalog>                 - ändra grupp för katalog
+chgrp -R <group> <katalog>              - ändra grupp för katalog och innehåll
+chgrp --reference=<filnamn> <filnamn>   - ändra grupp för fil till samma som annan fil
+
+
+                                        PAKET
+sudo apt install tree                   - översikt av kataloger
+sudo apt install locate                 - söka i datorns databas
+sudo apt install tldr                   - smart manual
+sudo apt install finger                 - visa info om användare
+sudo apt install curl                   - ladda ner fil från internet
+sudo apt install wget                   - ladda ner fil från internet
+sudo apt install zip                    - skapa zip
+sudo apt install unzip                  - packa upp zip
+sudo apt install htop                   - översikt av processer
+sudo apt install nmap                   - nätverksöversikt
+sudo apt install net-tools              - nätverksöversikt
+sudo apt install openssh-server         - ssh server
+sudo apt install openssh-client         - ssh client
+sudo apt install ssh                    - ssh client
+sudo apt install sshpass                - ssh utan lösenord
+sudo apt install git                    - versionshantering
+sudo apt install vim                    - texteditor
+sudo apt install nano                   - texteditor
+sudo apt install apt-file               - söka efter filer
