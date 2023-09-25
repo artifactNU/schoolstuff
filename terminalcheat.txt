@@ -36,6 +36,9 @@ history <nummer>                    - visa terminalhistorik
 
                                     SÖKA
 apt-cache search <paket>            - sök efter paket
+apt-file search /path/to/file       - sök efter fil
+apt-file list <paket>               - lista filer i paket
+
 grep <sökord> <filnamn>             - sök i specifik fil
 grep <sökord> <filA> <filB> <filC>  - sök i flera filer
 grep <sökord> *                     - sök i alla filer | * betyder vilken fil som helst
@@ -112,3 +115,4 @@ sudo apt install sshpass            - ssh utan lösenord
 sudo apt install git                - versionshantering
 sudo apt install vim                - texteditor
 sudo apt install nano               - texteditor
+sudo apt install apt-file           - söka efter filer
