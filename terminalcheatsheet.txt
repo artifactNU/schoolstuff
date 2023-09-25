@@ -32,6 +32,7 @@ clear & ctrl + l                    - rensa terminalen
 touch <filnamn>                     - skapa en tom fil
 touch -d tomorrow <filnamn>         - skapa en tom fil från imorgon
 ln -s <filnamn> <länknamn>          - skapa en länk till fil
+history <nummer>                    - visa terminalhistorik
 
                                     SÖKA
 grep <sökord> <filnamn>             - sök i specifik fil
@@ -46,6 +47,7 @@ which <kommando>                    - var finns kommandot
                                     INSTALLERA
 sudo apt install <paket>            - installera paket
 sudo apt update/upgrade             - uppdatera/uppgradera
+sudo apt remove <paket>             - radera paket
 
 sudo apt install tree               - översikt av kataloger
 sudo apt install locate             - söka i datorns databas
@@ -55,7 +57,7 @@ tldr -u                             - uppdatera tldr
 wget <url>                          - ladda ner fil från internet
 curl <url> > <filnamn>              - ladda ner fil från internet och spara som filnamn
 curl <url> | less                   - ladda ner fil från internet och visa i terminalen
-zip <filnamn> <filnamn>             - skapa zip
+zip <filnamn> <zipfilnamn>          - skapa zip
 unzip <filnamn>                     - packa upp zip
 
 
