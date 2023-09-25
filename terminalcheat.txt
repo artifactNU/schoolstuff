@@ -95,6 +95,8 @@ su <username>                           - byt användare
 sudo passwd <username>                  - ändra lösenord för användare
 passwd                                  - ändra lösenord för inloggad användare
 finger <username>                       - visa info om användare
+setuid <username>                       - byt användare
+setgid <group>                          - byt grupp
 
                                         RÄTTIGHETER
 ls -l <filnamn>                         - visa rättigheter för fil
