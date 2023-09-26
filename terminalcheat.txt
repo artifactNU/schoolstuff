@@ -151,6 +151,22 @@ setfacl -m m:rwx <filnamn eller katalog>                        - ändra rättig
 setfacl -x m:rwx <filnamn eller katalog>                        - ta bort rättigheter för mask
 
 
+                                        VARIABLER
+$SHELL                                  - vilken shell används
+$USER                                   - vilken användare är inloggad
+$HOME                                   - vilken katalog är användarens hemkatalog
+$PATH                                   - vilka kataloger söker terminalen i
+$PS1                                    - vilken prompt används
+$COLUNMS                                - hur många kolumner har terminalen
+$LINES                                  - hur många rader har terminalen
+$EUID                                   - vilket id har användaren
+
+                                        SKIRPT
+#!/bin/bash                             - vilken shell som ska användas
+bash <filnamn>                          - kör skript
+./ <filnamn>                            - S/A
+chmod u+x <filnamn>                     - gör filen körbar för user
+
                                         PAKET
 sudo apt install tree                   - översikt av kataloger
 sudo apt install locate                 - söka i datorns databas
