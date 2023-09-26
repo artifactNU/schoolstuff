@@ -32,7 +32,7 @@ clear & ctrl + l                        - rensa terminalen
 touch <filnamn>                         - skapa en tom fil
 touch -d tomorrow <filnamn>             - skapa en tom fil från imorgon
 ln -s <filnamn> <länknamn>              - skapa en länk till fil
-history <nummer>                        - visa terminalhistorik
+history <nummer>                        - visa terminalhistorik | <nummer> visar bara de senaste <nummer> kommandona
 
                                         SÖKA
 apt-cache search <paket>                - sök efter paket
@@ -103,12 +103,27 @@ setgid <group>                          - byt grupp
 ls -l <filnamn>                         - visa rättigheter för fil
 ls -ld <katalog>                        - visa rättigheter för katalog
 
+chmod <rättigheter> <filnamn>           - ändra rättigheter för fil
 chmod u=rwx,g=rx,o=r <filnamn>          - ändra rättigheter för fil
 chmod u+x <filnamn>                     - ändra rättigheter för fil (lägg till x för user)
-chmod <rättigheter> <filnamn>           - ändra rättigheter för fil
+chmod u-x <filnamn>                     - ändra rättigheter för fil (ta bort x för user)
+
 chmod <rättigheter> <katalog>           - ändra rättigheter för katalog
+chmod u=rwx,g=rx,o=r <katalog>          - ändra rättigheter för katalog
+chmod u+x <katalog>                     - ändra rättigheter för katalog (lägg till x för user)
+chmod u-x <katalog>                     - ändra rättigheter för katalog (ta bort x för user)
+
 chmod -R <rättigheter> <katalog>        - ändra rättigheter för katalog och innehåll
+chmod -R u=rwx,g=rx,o=r <katalog>       - ändra rättigheter för katalog och innehåll
+chmod -R u+x <katalog>                  - ändra rättigheter för katalog och innehåll (lägg till x för user)
+chmod -R u-x <katalog>                  - ändra rättigheter för katalog och innehåll (ta bort x för user)
+
 chmod --reference=<filnamn> <filnamn>   - ändra rättigheter för fil till samma som annan fil
+chmod --reference=<katalog> <katalog>   - ändra rättigheter för katalog till samma som annan katalog
+
+chmod +t <katalog eller filnamn>        - ändra rättigheter för katalog eller fil till sticky bit
+chmod u+s <katalog eller filnamn>       - ändra rättigheter för katalog eller fil till setuid
+chmod g+s <katalog eller filnamn>       - ändra rättigheter för katalog eller fil till setgid
 
 chown <username> <filnamn>              - ändra ägare för fil
 chown <username> <katalog>              - ändra ägare för katalog
@@ -120,6 +135,22 @@ chgrp <group> <filnamn>                 - ändra grupp för fil
 chgrp <group> <katalog>                 - ändra grupp för katalog
 chgrp -R <group> <katalog>              - ändra grupp för katalog och innehåll
 chgrp --reference=<filnamn> <filnamn>   - ändra grupp för fil till samma som annan fil
+
+umask                                   - visa umask (default rättigheter)
+umask <rättigheter>                     - ändra umask (default rättigheter)
+umask -S                                - visa umask i bokstäver
+umask -S <rättigheter>                  - ändra umask i bokstäver
+
+                                        RÄTTIGHETER ACL
+getfacl <filnamn eller katalog>                                 - visa rättigheter för fil eller katalog
+setfacl -m u:<username>:<rättigheter> <filnamn eller katalog>   - ändra rättigheter för fil eller katalog för användare
+setfacl -m g:<group>:<rättigheter> <filnamn eller katalog>      - ändra rättigheter för fil eller katalog för grupp
+setfacl -b <filnamn eller katalog>                              - ta bort alla rättigheter för fil eller katalog
+setfacl -x u:<username> <filnamn eller katalog>                 - ta bort rättigheter för användare
+setfacl -x g:<group> <filnamn eller katalog>                    - ta bort rättigheter för grupp
+
+setfacl -m m:rwx <filnamn eller katalog>                        - ändra rättigheter för fil eller katalog för mask
+setfacl -x m:rwx <filnamn eller katalog>                        - ta bort rättigheter för mask
 
 
                                         PAKET
@@ -141,4 +172,4 @@ sudo apt install sshpass                - ssh utan lösenord
 sudo apt install git                    - versionshantering
 sudo apt install vim                    - texteditor
 sudo apt install nano                   - texteditor
-sudo apt install apt-file               - söka efter filer
+sudo apt install apt-file               - söka efter filer i paket
