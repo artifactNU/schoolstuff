@@ -175,6 +175,19 @@ source <filnamn>                        - läs in variabler från fil
 env                                     - visa alla miljövariabler
 env | grep <variabel>                   - sök efter miljövariabel
 
+                                        PARAMETRAR
+$0                                      - namnet på skriptet
+$1                                      - första parametern
+$2                                      - andra parametern
+${10}                                   - tionde parametern
+$#                                      - antal parametrar
+$*                                      - alla parametrar
+$@                                      - S/A
+$?                                      - return value från senaste kommandot
+$$                                      - process id för nuvarande shell
+$!                                      - process id för senaste bakgrundsprocessen
+
+
                                         SKRIPT
 #!/bin/bash                             - vilken shell som ska användas
 bash <filnamn>                          - kör skript
