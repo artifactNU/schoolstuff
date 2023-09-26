@@ -34,6 +34,7 @@ touch -d tomorrow <filnamn>             - skapa en tom fil från imorgon
 ln -s <filnamn> <länknamn>              - skapa en länk till fil
 history <nummer>                        - visa terminalhistorik | <nummer> visar bara de senaste <nummer> kommandona
 
+
                                         SÖKA
 apt-cache search <paket>                - sök efter paket
 apt-file search /path/to/file           - sök efter fil
@@ -58,7 +59,6 @@ sudo apt autoremove                     - radera oanvända paket
 apt-mark showmanual                     - visa manuellt installerade paket
 apt-mark showauto                       - visa automatiskt installerade paket
 
-
 tldr -u                                 - uppdatera tldr
 wget <url>                              - ladda ner fil från internet
 curl <url> > <filnamn>                  - ladda ner fil från internet och spara som filnamn
@@ -78,6 +78,7 @@ help <kommando>                         - yttligare en manual
 <kommando> /?                           - S/A
 <kommando> utan argument                - S/A
 
+
                                         NÄTVERK
 ifconfig                                - visa ip
 ping <ip/domän>                         - pinga ip
@@ -85,6 +86,7 @@ ping -c <antal> <ip/domän>              - pinga ip/domän <antal> gånger
 ssh username@ipaddress                  - ssh in i server
 ssh -p <port> username@ipaddress        - ssh in i server med annan port
 ssh -i <key> username@ipaddress         - ssh in i server med annan key
+
 
                                         ANVÄNDARE
 sudo adduser <username>                 - skapa användare
@@ -96,6 +98,7 @@ su <username>                           - byt användare
 sudo passwd <username>                  - ändra lösenord för användare
 passwd                                  - ändra lösenord för inloggad användare
 finger <username>                       - visa info om användare
+
 
                                         RÄTTIGHETER
 ls -l <filnamn>                         - visa rättigheter för fil
@@ -139,6 +142,7 @@ umask <rättigheter>                     - ändra umask (default rättigheter)
 umask -S                                - visa umask i bokstäver
 umask -S <rättigheter>                  - ändra umask i bokstäver
 
+
                                         RÄTTIGHETER ACL
 getfacl <filnamn eller katalog>                                 - visa rättigheter för fil eller katalog
 setfacl -m u:<username>:<rättigheter> <filnamn eller katalog>   - ändra rättigheter för fil eller katalog för användare
@@ -161,11 +165,22 @@ $COLUNMS                                - hur många kolumner har terminalen
 $LINES                                  - hur många rader har terminalen
 $EUID                                   - vilket id har användaren
 
-                                        SKIRPT
+
+                                        MILJÖVARIABLER
+export <variabel>=<värde>               - skapa och exportera variabel
+export <variabel>=<värde>               - ändra och exportera variabel
+export <variabel>                       - exportera variabel
+unset <variabel>                        - radera variabel
+source <filnamn>                        - läs in variabler från fil
+env                                     - visa alla miljövariabler
+env | grep <variabel>                   - sök efter miljövariabel
+
+                                        SKRIPT
 #!/bin/bash                             - vilken shell som ska användas
 bash <filnamn>                          - kör skript
 ./ <filnamn>                            - S/A
 chmod u+x <filnamn>                     - gör filen körbar för user
+
 
                                         PAKET
 sudo apt install tree                   - översikt av kataloger
