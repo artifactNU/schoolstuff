@@ -68,17 +68,18 @@ unzip <filnamn>                         - packa upp zip
 
 
                                         HJÄLP
+whatis <kommando>                       - kort beskrivning av kommando
 man <kommando>                          - manual för specifikt kommando
 info <kommando>                         - alternativ manual
 help <kommando>                         - yttligare en manual
-whatis <kommando>                       - kort beskrivning av kommando
-<kommando> --help                       - -..-
-<kommando> -h                           - -..-
-<kommando> -?                           - -..-
-<kommando> /?                           - -..-
-<kommando> utan argument                - -..-
+<kommando> --help                       - S/A
+<kommando> -h                           - S/A
+<kommando> -?                           - S/A
+<kommando> /?                           - S/A
+<kommando> utan argument                - S/A
 
                                         NÄTVERK
+ifconfig                                - visa ip
 ping <ip/domän>                         - pinga ip
 ping -c <antal> <ip/domän>              - pinga ip/domän <antal> gånger
 ssh username@ipaddress                  - ssh in i server
@@ -102,6 +103,8 @@ setgid <group>                          - byt grupp
 ls -l <filnamn>                         - visa rättigheter för fil
 ls -ld <katalog>                        - visa rättigheter för katalog
 
+chmod u=rwx,g=rx,o=r <filnamn>          - ändra rättigheter för fil
+chmod u+x <filnamn>                     - ändra rättigheter för fil (lägg till x för user)
 chmod <rättigheter> <filnamn>           - ändra rättigheter för fil
 chmod <rättigheter> <katalog>           - ändra rättigheter för katalog
 chmod -R <rättigheter> <katalog>        - ändra rättigheter för katalog och innehåll
