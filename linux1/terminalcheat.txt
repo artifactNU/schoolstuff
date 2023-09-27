@@ -234,5 +234,3 @@ sudo apt install git                    - versionshantering
 sudo apt install vim                    - texteditor
 sudo apt install nano                   - texteditor
 sudo apt install apt-file               - söka efter filer i paket
-
-test
