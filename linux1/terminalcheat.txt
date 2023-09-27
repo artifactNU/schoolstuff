@@ -226,9 +226,9 @@ echo "Hej" >> <filnamn>                 - skriv till fil utan att skriva över
 <kommando> > <filnamn>                  - skriv över resultatet av kommandot till fil
 <kommando> >> <filnamn>                 - skriv resultatet av kommandot till fil utan att skriva över
 
-<kommando> 0> <filnamn>                 - skriv över resultatet av kommandot till fil | stdin
-<kommando> 1> <filnamn>                 - skriv över resultatet av kommandot till fil | stdout
-<kommando> 2> <filnamn>                 - skriv över felmeddelanden till fil | stderr
+<kommando> 0> <filnamn>|&0|&1|&2        - skriv över resultatet av kommandot till fil | 0 = stdin
+<kommando> 1> <filnamn>|&0|&1|&2        - skriv över resultatet av kommandot till fil | 1 = stdout
+<kommando> 2> <filnamn>|&0|&1|&2        - skriv över felmeddelanden till fil          | 2 = stderr
 
                                         PAKET
 sudo apt install tree                   - översikt av kataloger
