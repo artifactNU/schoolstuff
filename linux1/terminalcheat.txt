@@ -178,7 +178,7 @@ $LINES                                  - hur många rader har terminalen
 $EUID                                   - vilket id har användaren
 $TERM                                   - vilket protokol som terminalen använder
 $HISTSIZE                               - hur många kommandon sparas i historiken
-
+$HISTIGNORE                             - vilka kommandon ska ignoreras i historiken | HISTIGNORE="<kommando>"
 
                                         STRÄNGAR
 '$ordagrant' => 'ordagrant'             - enkel citationstecken
@@ -219,6 +219,16 @@ chmod u+x <filnamn>                     - gör filen körbar för user
 PATH=${PATH}:/home/user/bin             - lägg till katalog med kommandon i PATH
 ~/.bashrc                               - konfigurationscript som körs när terminalen startas
 
+
+                                        OMDIRIGERING
+echo "Hej" > <filnamn>                  - skriv över fil
+echo "Hej" >> <filnamn>                 - skriv till fil utan att skriva över
+<kommando> > <filnamn>                  - skriv över resultatet av kommandot till fil
+<kommando> >> <filnamn>                 - skriv resultatet av kommandot till fil utan att skriva över
+
+<kommando> 0> <filnamn>                 - skriv över resultatet av kommandot till fil | stdin
+<kommando> 1> <filnamn>                 - skriv över resultatet av kommandot till fil | stdout
+<kommando> 2> <filnamn>                 - skriv över felmeddelanden till fil | stderr
 
                                         PAKET
 sudo apt install tree                   - översikt av kataloger
