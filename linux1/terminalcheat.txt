@@ -32,7 +32,12 @@ clear & ctrl + l                        - rensa terminalen
 touch <filnamn>                         - skapa en tom fil
 touch -d tomorrow <filnamn>             - skapa en tom fil från imorgon
 ln -s <filnamn> <länknamn>              - skapa en länk till fil
+
+                                        HISTORIK
 history <nummer>                        - visa terminalhistorik | <nummer> visar bara de senaste <nummer> kommandona
+!<nummer>                               - kör kommando från historik | <nummer> är numret på kommandot i historiken
+!!                                      - kör senaste kommandot
+ctrl + r                                - sök i historik | tryck flera gånger för att söka igenom historiken
 
 
                                         SÖKA
@@ -172,6 +177,7 @@ $COLUNMS                                - hur många kolumner har terminalen
 $LINES                                  - hur många rader har terminalen
 $EUID                                   - vilket id har användaren
 $TERM                                   - vilket protokol som terminalen använder
+$HISTSIZE                               - hur många kommandon sparas i historiken
 
 
                                         STRÄNGAR
