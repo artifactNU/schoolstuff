@@ -128,6 +128,7 @@ chmod g+s <katalog eller filnamn>       - ändra rättigheter för katalog eller
 
 chown <username> <filnamn>              - ändra ägare för fil
 chown <username> <katalog>              - ändra ägare för katalog
+chown :<group> <filnamn>                - ändra grupp för fil
 chown <username>:<group> <filnamn>      - ändra ägare och grupp för fil
 chown -R <username>:<group> <katalog>   - ändra ägare och grupp för katalog och innehåll
 chown --reference=<filnamn> <filnamn>   - ändra ägare för fil till samma som annan fil
@@ -155,16 +156,30 @@ setfacl -m m:rwx <filnamn eller katalog>                        - ändra rättig
 setfacl -x m:rwx <filnamn eller katalog>                        - ta bort rättigheter för mask
 
 
+                                        ALIAS
+alias                                   - visa alla alias
+alias <aliasnamn>='<kommando>'          - skapa alias
+unalias <aliasnamn>                     - radera alias
+
+
                                         VARIABLER
 $SHELL                                  - vilken shell används
 $USER                                   - vilken användare är inloggad
 $HOME                                   - vilken katalog är användarens hemkatalog
-$PATH                                   - vilka kataloger söker terminalen i
+$PATH                                   - vilka kataloger söker terminalen i efter kommandon
 $PS1                                    - vilken prompt används
 $COLUNMS                                - hur många kolumner har terminalen
 $LINES                                  - hur många rader har terminalen
 $EUID                                   - vilket id har användaren
+$TERM                                   - vilket protokol som terminalen använder
 
+
+                                        STRÄNGAR
+'$ordagrant' => 'ordagrant'             - enkel citationstecken
+"Hej $USER" => "Hej administrator"      - dubbel citationstecken
+\n                                      - ny rad i sträng
+\t                                      - tab i sträng
+$((1+1))                                - aritmetisk uträkning
 
                                         MILJÖVARIABLER
 export <variabel>=<värde>               - skapa och exportera variabel
@@ -174,6 +189,7 @@ unset <variabel>                        - radera variabel
 source <filnamn>                        - läs in variabler från fil
 env                                     - visa alla miljövariabler
 env | grep <variabel>                   - sök efter miljövariabel
+
 
                                         PARAMETRAR
 $0                                      - namnet på skriptet
@@ -193,6 +209,9 @@ $!                                      - process id för senaste bakgrundsproce
 bash <filnamn>                          - kör skript
 ./ <filnamn>                            - S/A
 chmod u+x <filnamn>                     - gör filen körbar för user
+
+PATH=${PATH}:/home/user/bin             - lägg till katalog med kommandon i PATH
+~/.bashrc                               - konfigurationscript som körs när terminalen startas
 
 
                                         PAKET
