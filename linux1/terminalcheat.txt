@@ -226,9 +226,32 @@ echo "Hej" >> <filnamn>                 - skriv till fil utan att skriva över
 <kommando> > <filnamn>                  - skriv över resultatet av kommandot till fil
 <kommando> >> <filnamn>                 - skriv resultatet av kommandot till fil utan att skriva över
 
-<kommando> 0> <filnamn>|&0|&1|&2        - skriv över resultatet av kommandot till fil | 0 = stdin
-<kommando> 1> <filnamn>|&0|&1|&2        - skriv över resultatet av kommandot till fil | 1 = stdout
-<kommando> 2> <filnamn>|&0|&1|&2        - skriv över felmeddelanden till fil          | 2 = stderr
+<kommando> 0> [<filnamn>|&0|&1|&2]      - skriv över resultatet av kommandot till fil | 0 = stdin
+<kommando> 1> [<filnamn>|&0|&1|&2]      - skriv över resultatet av kommandot till fil | 1 = stdout
+<kommando> 2> [<filnamn>|&0|&1|&2]      - skriv över felmeddelanden till fil          | 2 = stderr
+
+<kommando> 2> /dev/null                 - skicka felmeddelanden till /dev/null
+<kommando> 1> /dev/null                 - skicka resultatet av kommandot till /dev/null
+
+
+                                        PIPE
+<kommando1> | <kommando2>               - skicka resultatet av kommando1 till kommando2 | kommando1 stdout -> kommando2 stdin
+
+
+                                        EXIT STATUS
+echo $?                                 - visa return value från senaste kommandot
+0                                       - allt gick bra
+1                                       - något gick fel
+2                                       - felaktiga parametrar
+false                                   - allt gick fel
+true                                    - allt gick bra
+
+
+                                        KONTROLLSTRUKTURER
+&&                                      - och (kör kommando2 om kommando1 gick bra)
+||                                      - eller (kör kommando2 om kommando1 gick dåligt)
+;                                       - kör kommando2 oavsett om kommando1 gick bra eller dåligt
+
 
                                         PAKET
 sudo apt install tree                   - översikt av kataloger
