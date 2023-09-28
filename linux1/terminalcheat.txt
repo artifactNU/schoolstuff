@@ -32,6 +32,8 @@ clear & ctrl + l                        - rensa terminalen
 touch <filnamn>                         - skapa en tom fil
 touch -d tomorrow <filnamn>             - skapa en tom fil från imorgon
 ln -s <filnamn> <länknamn>              - skapa en länk till fil
+sort <filnamn>                          - sortera fil
+wc -l <filnamn>                         - räkna rader i fil
 
                                         HISTORIK
 history <nummer>                        - visa terminalhistorik | <nummer> visar bara de senaste <nummer> kommandona
@@ -251,6 +253,8 @@ true                                    - allt gick bra
 &&                                      - och (kör kommando2 om kommando1 gick bra)
 ||                                      - eller (kör kommando2 om kommando1 gick dåligt)
 ;                                       - kör kommando2 oavsett om kommando1 gick bra eller dåligt
+test <villkor>                          - testa villkor | se man sida för alla villkor
+if <villkor>; then <kommando>; fi       - om villkor är sant kör kommando
 
 
                                         PAKET
