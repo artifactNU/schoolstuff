@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # verifiera att ett argument har angetts.
-if test "$1" -eq 0; then
+if test -z "$1" ; then
     echo "Saknar argument. Ange en katalog för att skapa en säkerhetskopia." >&2
     exit 1
 fi
@@ -15,7 +15,7 @@ fi
 # om en backup med namnet $1.bak redan finns, döp om den till $1.bak2. Befintlig $1.bak2 raderas om den existerar innan omdöpningen.
 if test -e "$1.bak"; then
     if test -e "$1.bak2"; then
-        rm "$1.bak2"
+        rm -r "$1.bak2"
     fi
     mv "$1.bak" "$1.bak2"
 fi
