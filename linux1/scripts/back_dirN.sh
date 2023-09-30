@@ -7,8 +7,8 @@ if test $# -lt 1; then                                                          
 fi
 
 # loopa igenom alla angivna argument och verifiera att de är existerande kataloger
-for dir in "$@"; do                                                                    # "$@" = alla argument
-    if test ! -d "$dir"; then                                                          # -d = directory
+for dir in "$@"; do                                                                    # $@ = alla argument
+    if test ! -d "$dir"; then                                                          # ! -d = inte en katalog
         echo "Argumentet '$dir' är inte en existerande katalog." >&2
         exit 1
     fi
@@ -26,7 +26,7 @@ for dir in "$@"; do
     fi
 
     # skapa en ny backup av katalogen och namnge den till $#.bak
-    # varje filnamn skrivs ut under tiden de kopieras
+    # varje filnamn skrivs ut medans de kopieras
     cp -rv "$dir" "$dir.bak" | while read -r line; do                                  # -rv = rekursivt och verbose | while read -r line = läs in varje rad i $line
         echo "$line"
     done

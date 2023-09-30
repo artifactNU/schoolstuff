@@ -22,7 +22,7 @@ if test -e "$1.bak"; then                                                       
 fi
 
 # skapa en säkerhetskopia av katalogen $1
-# varje filnamn skrivs ut under tiden de kopieras
+# varje filnamn skrivs ut medans de kopieras
 cp -rv "$1" "$1.bak" | while read -r line; do                     # -rv kopierar rekursivt och skriver ut filnamn |  while read -r line = läs in varje rad i $line
     echo "$line"
 done
