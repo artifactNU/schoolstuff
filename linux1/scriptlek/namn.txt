@@ -1,0 +1,7 @@
+namn,lösenord,operation
+alice,lösenord1,add
+bob,lösenord2,remove
+charlie,lösenord3,remove
+david,lösenord4,add
+eva,lösenord5,add
+frida,lösenord6,add
