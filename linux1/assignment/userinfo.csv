@@ -1,0 +1,4 @@
+firstname,surname,password,operation
+alice,smith,1234,useradd
+bob,smith,1234,useradd
+charlie,smith,1234,useradd
