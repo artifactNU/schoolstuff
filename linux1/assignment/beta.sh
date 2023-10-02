@@ -1,5 +1,6 @@
 #!/bin/bash
 MY_INPUT='userinfo.csv'
+LOGG_FILE='logfile.txt'
 
 #while read -r line; do
 #    echo "$line"
@@ -13,5 +14,5 @@ while IFS="," read -r firstname surname password operation; do # IFS="," gör cs
     fi
     # skapa användaren med lösenordet - ta bort echo
     echo "$operation" -m "$firstname$surname" -p "$password"
-    # skippa första raden i filen
+    # skippa första raden i csv-filen
 done < <(sed 1d "$MY_INPUT")
