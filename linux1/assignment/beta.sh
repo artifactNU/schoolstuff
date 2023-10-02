@@ -9,7 +9,7 @@ while IFS="," read -r firstname surname password operation; do                  
             exit 1
         fi
         # ta bort echo
-        echo useradd -m -p "$password" "$firstname$surname" | tee -a "$LOGG_FILE"       # skapa användare och logga utan att skriva över
+        echo useradd -m "$firstname$surname" -p "$password" | tee -a "$LOGG_FILE"       # skapa användare och logga utan att skriva över
     elif test "$operation" = "remove"; then                                             # kolla om användare ska raderas
         if ! id -u "$firstname$surname" >/dev/null; then                                # kolla om användaren finns, output discarded
             echo "användaren $firstname$surname existerar inte" >&2                     # error print til stderr
