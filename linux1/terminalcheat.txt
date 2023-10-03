@@ -93,6 +93,10 @@ ping -c <antal> <ip/domän>              - pinga ip/domän <antal> gånger
 ssh username@ipaddress                  - ssh in i server
 ssh -p <port> username@ipaddress        - ssh in i server med annan port
 ssh -i <key> username@ipaddress         - ssh in i server med annan key
+ssh-keygen -b 4096                      - skapa ssh key | -b 4096 = 4096 bitar
+ssh-copy-id username@ipaddress          - kopiera ssh key till server
+scp -P <port> <filnamn> username@ipaddress:<katalog> - kopiera fil till server
+scp -P <port> username@ipaddress:<filnamn> <katalog> - kopiera fil från server
 
 
                                         ANVÄNDARE

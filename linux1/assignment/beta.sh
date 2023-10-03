@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if test $# -ne 1; then                                   # kontrollera att endast ett argument har angets och att filen existerar
+if test $# -ne 1; then                                   # kontrollera att endast ett argument har angets & att det är en fil som existerar
     echo "ange endast exakt en csv-fil som argument" >&2 # error print till stderr
     exit 1
 fi
