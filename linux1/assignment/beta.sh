@@ -2,7 +2,7 @@
 
 # Krav:
 # 1. Skriptet tar endast ett argument, en CSV-fil.
-# 2. CSV-filen innehåller fyra kolumner: förnamn, efternamn, lösenord, operation.
+# 2. CSV-filen innehåller fyra kolumner: firstname, surname, password, operation.
 # 3. Operationskolumnen innehåller antingen add eller remove.
 # 4. Whois-paketet måste vara installerat. sudo apt-get install whois
 
