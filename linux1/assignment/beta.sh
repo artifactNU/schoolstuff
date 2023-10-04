@@ -4,7 +4,10 @@
 # 1. Skriptet tar endast ett argument, en CSV-fil.
 # 2. CSV-filen innehåller fyra kolumner: firstname, surname, password, operation.
 # 3. Operationskolumnen innehåller antingen add eller remove.
-# 4. Whois-paketet måste vara installerat. sudo apt-get install whois
+# 4. Whois-paketet måste vara installerat. sudo apt install whois
+# 5. Skriptet måste köras med root-rättigheter.
+
+
 
 if test $# -ne 1; then                             # kontrollera att endast ett argument har angets & att det är en fil som existerar
     echo "ange endast en csv-fil som argument" >&2 # error print till stderr
@@ -12,7 +15,7 @@ if test $# -ne 1; then                             # kontrollera att endast ett 
 fi
 
 MY_INPUT="$1" # user info csv-fil
-LOGG_FILE='/home/topsid/assignment/logfile.txt' # loggfil OBS ändra till rätt sökväg
+LOGG_FILE='/home/topsid/assignment/logfile.txt' # definiera loggfil OBS ändra till rätt path
 
 touch "$LOGG_FILE" # skapa loggfil om den inte finns
 
@@ -28,17 +31,18 @@ while IFS="," read -r firstname surname password operation; do       # IFS="," g
             echo "användaren $username existerar redan" >&2 # error print till stderr
             exit 1
         fi
-        echo "Skapar användare: $username" | tee -a "$LOGG_FILE" >&2
+        echo "Skapar användare: $username" | tee -a "$LOGG_FILE"     #BONUS# logga skapande
         # ta bort echo
-        echo useradd -m "$username" -p "$(mkpasswd "$password")" >/dev/null # skapa användare med hashat lösenord & home directory, output discarded
-    elif test "$operation" = "remove"; then                              # kolla om användare ska raderas
-        if ! id -u "$username" >/dev/null; then                          # kolla om användaren inte finns, output discarded
-            echo "användaren $username existerar inte" >&2               # error print til stderr
+        echo useradd -m "$username" -p "$(mkpasswd "$password")" >/dev/null #BONUS# skapa användare med hashat lösenord & home directory, output discarded WIP generate hash comment
+        echo "Generating hash for $username" >&2                         #BONUS#
+    elif test "$operation" = "remove"; then                              #BONUS# kolla om användare ska raderas
+        if ! id -u "$username" >/dev/null; then                          #BONUS# kolla om användaren inte finns, output discarded
+            echo "användaren $username existerar inte" >&2               #BONUS# error print til stderr
             exit 1
         fi
-        echo "Raderar användare: $username" | tee -a "$LOGG_FILE" >&2
+        echo "Raderar användare: $username" | tee -a "$LOGG_FILE"    #BONSU# logga radering 
         # ta bort echo
-        echo userdel -r "$username" >/dev/null # radera användare & home directory om den finns, output discarded
+        echo userdel -r "$username" >/dev/null #BONUS# radera användare & home directory, output discarded
     else
         echo "okänt kommando: $operation använd add/remove" >&2 # error print till stderr
         exit 1
