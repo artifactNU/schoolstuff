@@ -12,7 +12,9 @@ if test $# -ne 1; then                             # kontrollera att endast ett 
 fi
 
 MY_INPUT="$1" # user info csv-fil
-LOGG_FILE='logfile.txt'
+LOGG_FILE='/home/topsid/assignment/logfile.txt' # loggfil OBS ändra till rätt sökväg
+
+touch "$LOGG_FILE" # skapa loggfil om den inte finns
 
 if test ! -f "$MY_INPUT"; then                         # kontrollera att argumentet är en vanlig fil
     echo "argumentet består inte av en vanlig fil" >&2 # error print till stderr
@@ -26,15 +28,17 @@ while IFS="," read -r firstname surname password operation; do       # IFS="," g
             echo "användaren $username existerar redan" >&2 # error print till stderr
             exit 1
         fi
+        echo "Skapar användare: $username" | tee -a "$LOGG_FILE" >&2
         # ta bort echo
-        echo useradd -m "$username" -p "$(mkpasswd "$password")" 2>&1 >/dev/null | tee -a "$LOGG_FILE" >&2 && echo "Generating hash for $username" >&2 # skapa användare, skapa lösenord hash & logga utan att skriva över
+        echo useradd -m "$username" -p "$(mkpasswd "$password")" >/dev/null # skapa användare med hashat lösenord & home directory, output discarded
     elif test "$operation" = "remove"; then                              # kolla om användare ska raderas
         if ! id -u "$username" >/dev/null; then                          # kolla om användaren inte finns, output discarded
             echo "användaren $username existerar inte" >&2               # error print til stderr
             exit 1
         fi
+        echo "Raderar användare: $username" | tee -a "$LOGG_FILE" >&2
         # ta bort echo
-        echo userdel -r "$username" | tee -a "$LOGG_FILE" # radera användare och logga utan att skriva över
+        echo userdel -r "$username" >/dev/null # radera användare & home directory om den finns, output discarded
     else
         echo "okänt kommando: $operation använd add/remove" >&2 # error print till stderr
         exit 1
