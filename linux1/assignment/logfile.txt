@@ -4,9 +4,3 @@ Skapar användare: chasmi
 Raderar användare: alismi
 Raderar användare: bobsmi
 Raderar användare: chasmi
-Skapar användare: alismi
-Skapar användare: bobsmi
-Skapar användare: chasmi
-Raderar användare: alismi
-Raderar användare: bobsmi
-Raderar användare: chasmi
