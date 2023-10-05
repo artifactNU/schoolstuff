@@ -7,6 +7,7 @@
 # 4. Paketet whois måste vara installerat. sudo apt install whois
 # 5. Skriptet måste köras med root-rättigheter.
 # 6. Loggfilen ligger/skapas i samma katalog som skriptet.
+# 7. Skriptet utgår från att csv-filen har en header, kommenter bort "< <(sed 1d "$MY_INPUT")' på sista raden om så inte är fallet.
 
 if test $# -ne 1; then                             # kontrollera att endast ett argument har angets & att det är en fil som existerar
     echo "ange endast en csv-fil som argument" >&2 # error print till stderr
@@ -31,7 +32,7 @@ while IFS="," read -r firstname surname password operation; do # IFS="," gör cs
             exit 1
         fi
         echo "Skapar användare: $username" | tee -a "$LOGG_FILE"        #BONUS# logga skapande
-        useradd -m "$username" -p "$(mkpasswd "$password")" 2>/dev/null #BONUS# skapa användare med hashat lösenord & home directory, output discarded WIP generate hash comment
+        useradd -m "$username" -p "$(mkpasswd "$password")" 2>/dev/null #BONUS# skapa användare med hashat lösenord & home directory
         echo "Generating hash for $username" >&2                        #BONUS#
     elif test "$operation" = "remove"; then                             #BONUS# kolla om användare ska raderas
         if ! id -u "$username" 2>/dev/null; then                        #BONUS# kolla om användaren inte finns, output discarded
