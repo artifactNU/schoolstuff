@@ -7,7 +7,7 @@
 # 4. Paketet whois måste vara installerat. sudo apt install whois
 # 5. Skriptet måste köras med root-rättigheter.
 # 6. Loggfilen ligger/skapas i samma katalog som skriptet.
-# 7. Skriptet utgår från att csv-filen har en header, kommenter bort "< <(sed 1d "$MY_INPUT")' på sista raden om så inte är fallet.
+# 7. Skriptet utgår från att csv-filen har en header, kommenter bort "< <(sed 1d "$MY_INPUT')"" på sista raden om så inte är fallet.
 
 if test $# -ne 1; then                             # kontrollera att endast ett argument har angets & att det är en fil som existerar
     echo "ange endast en csv-fil som argument" >&2 # error print till stderr
