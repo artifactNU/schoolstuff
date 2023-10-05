@@ -25,22 +25,22 @@ fi
 while IFS="," read -r firstname surname password operation; do # IFS="," gör csv-filen läsbar
     username="${firstname:0:3}${surname:0:3}"                  # definiera användarnamn & ta hänsyn på namn < 3 bokstäver
     if test "$operation" = "add"; then                         # kolla om användare ska skapas
-        if id -u "$username" >/dev/null; then                  # kolla om användaren finns, output discarded
+        if id -u "$username" 2>/dev/null; then                 # kolla om användaren finns, output discarded
             echo "användaren $username existerar redan" >&2    # error print till stderr
             exit 1
         fi
         echo "Skapar användare: $username" | tee -a "$LOGG_FILE" #BONUS# logga skapande
         # ta bort echo
-        echo useradd -m "$username" -p "$(mkpasswd "$password")" >/dev/null #BONUS# skapa användare med hashat lösenord & home directory, output discarded WIP generate hash comment
-        echo "Generating hash for $username" >&2                            #BONUS#
-    elif test "$operation" = "remove"; then                                 #BONUS# kolla om användare ska raderas
-        if ! id -u "$username" >/dev/null; then                             #BONUS# kolla om användaren inte finns, output discarded
-            echo "användaren $username existerar inte" >&2                  #BONUS# error print til stderr
+        useradd -m "$username" -p "$(mkpasswd "$password")" >/dev/null #BONUS# skapa användare med hashat lösenord & home directory, output discarded WIP generate hash comment
+        echo "Generating hash for $username" >&2                       #BONUS#
+    elif test "$operation" = "remove"; then                            #BONUS# kolla om användare ska raderas
+        if ! id -u "$username" 2>/dev/null; then                       #BONUS# kolla om användaren inte finns, output discarded
+            echo "användaren $username existerar inte" >&2             #BONUS# error print til stderr
             exit 1
         fi
         echo "Raderar användare: $username" | tee -a "$LOGG_FILE" #BONSU# logga radering
         # ta bort echo
-        echo userdel -r "$username" >/dev/null #BONUS# radera användare & home directory, output discarded
+        userdel -r "$username" >/dev/null #BONUS# radera användare & home directory, output discarded
     else
         echo "okänt kommando: $operation använd add/remove" >&2 # error print till stderr
         exit 1
