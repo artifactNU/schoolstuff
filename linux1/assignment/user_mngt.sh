@@ -7,7 +7,6 @@
 # 4. Paketet whois måste vara installerat. sudo apt install whois
 # 5. Skriptet måste köras med root-rättigheter.
 # 6. Loggfilen ligger/skapas i samma katalog som skriptet.
-# 7. Skriptet utgår från att csv-filen har en header, kommenter bort "< <(sed 1d "$MY_INPUT')"" på sista raden om så inte är fallet.
 
 if test $# -ne 1; then                             # kontrollera att endast ett argument har angets & att det är en fil som existerar
     echo "ange endast en csv-fil som argument" >&2 # error print till stderr
@@ -29,7 +28,6 @@ while IFS="," read -r firstname surname password operation; do # IFS="," gör cs
     if test "$operation" = "add"; then                         # kolla om användare ska skapas
         if id -u "$username" 2>/dev/null; then                 # kolla om användaren finns, output discarded
             echo "användaren $username existerar redan" >&2    # error print till stderr
-            exit 1
         fi
         echo "Skapar användare: $username" | tee -a "$LOGG_FILE"        #BONUS# logga skapande
         useradd -m "$username" -p "$(mkpasswd "$password")" 2>/dev/null #BONUS# skapa användare med hashat lösenord & home directory
@@ -37,7 +35,6 @@ while IFS="," read -r firstname surname password operation; do # IFS="," gör cs
     elif test "$operation" = "remove"; then                             #BONUS# kolla om användare ska raderas
         if ! id -u "$username" 2>/dev/null; then                        #BONUS# kolla om användaren inte finns, output discarded
             echo "användaren $username existerar inte" >&2              #BONUS# error print til stderr
-            exit 1
         fi
         echo "Raderar användare: $username" | tee -a "$LOGG_FILE" #BONSU# logga radering
         userdel -r "$username" 2>/dev/null                        #BONUS# radera användare & home directory, output discarded
@@ -45,4 +42,4 @@ while IFS="," read -r firstname surname password operation; do # IFS="," gör cs
         echo "okänt kommando: $operation använd add/remove" >&2 # error print till stderr
         exit 1
     fi
-done < <(sed 1d "$MY_INPUT") # ignorera header i csv-filen
+done <"$MY_INPUT"
