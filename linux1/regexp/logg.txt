@@ -1,0 +1,14 @@
+[Fri Oct 06 07:35:36.606867 2023] [mpm_event:notice] [pid 1736:tid 140564636125056] AH00489: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
+[Fri Oct 06 07:35:36.607023 2023] [core:notice] [pid 1736:tid 140564636125056] AH00094: Command line: '/usr/sbin/apache2'
+[Fri Oct 06 07:57:23.267581 2023] [mpm_event:notice] [pid 1736:tid 140564636125056] AH00492: caught SIGWINCH, shutting down gracefully
+[Fri Oct 06 07:57:23.333073 2023] [mpm_prefork:notice] [pid 13354] AH00163: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
+[Fri Oct 06 07:57:23.333147 2023] [core:notice] [pid 13354] AH00094: Command line: '/usr/sbin/apache2'
+[Fri Oct 06 07:57:23.483883 2023] [mpm_prefork:notice] [pid 13354] AH00170: caught SIGWINCH, shutting down gracefully
+[Fri Oct 06 07:57:23.648170 2023] [mpm_prefork:notice] [pid 13396] AH00163: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
+[Fri Oct 06 07:57:23.648209 2023] [core:notice] [pid 13396] AH00094: Command line: '/usr/sbin/apache2'
+[Fri Oct 06 07:57:36.191585 2023] [mpm_prefork:notice] [pid 13396] AH00170: caught SIGWINCH, shutting down gracefully
+[Fri Oct 06 07:57:36.348026 2023] [mpm_prefork:notice] [pid 14000] AH00163: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
+[Fri Oct 06 07:57:36.348078 2023] [core:notice] [pid 14000] AH00094: Command line: '/usr/sbin/apache2'
+[Fri Oct 06 08:04:04.271789 2023] [php:notice] [pid 14001] [client 10.6.68.19:58772] WordPress database error Table 'wordpress.wp_options' doesn't exist for >
+[Fri Oct 06 08:04:04.273800 2023] [php:notice] [pid 14001] [client 10.6.68.19:58772] WordPress database error Table 'wordpress.wp_options' doesn't exist for >
+sh: 1: /usr/sbin/sendmail: not found

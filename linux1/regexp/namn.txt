@@ -1,0 +1,6 @@
+Alice 15000 /bin/sh
+Bob 17854 /bin/sh
+Charlie 19232 /bin/sh
+David 25402 /bin/zsh
+Erik 54233 /bin/bash
+Fredrik 32567 /bin/fish
