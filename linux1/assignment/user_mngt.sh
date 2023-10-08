@@ -31,7 +31,7 @@ while IFS="," read -r firstname surname password operation; do # IFS="," gör cs
         fi
         echo "Skapar användare: $username" | tee -a "$LOGG_FILE"        #BONUS# logga skapande
         useradd -m "$username" -p "$(mkpasswd "$password")" 2>/dev/null #BONUS# skapa användare med hashat lösenord & home directory
-        echo "Generating hash for $username" >&2                        #BONUS#
+        echo "Genererar hash för $username" >&2                        #BONUS#
     elif test "$operation" = "remove"; then                             #BONUS# kolla om användare ska raderas
         if ! id -u "$username" 2>/dev/null; then                        #BONUS# kolla om användaren inte finns, output discarded
             echo "användaren $username existerar inte" >&2              #BONUS# error print til stderr
