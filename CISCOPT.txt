@@ -1,3 +1,4 @@
+### Basic CLI Commands:
 # Enter privileged EXEC mode
 enable
 en
@@ -6,13 +7,6 @@ en
 configure terminal
 conf t
 
-# Enter interface configuration mode
-interface [interface_type] [interface_number]
-int [interface_type] [interface_number]
-
-# Exit configuration mode and return to privileged EXEC mode
-end
-
 # Display the current running configuration
 show running-config
 sh run
@@ -20,6 +14,11 @@ sh run
 # Display information about all interfaces
 show interfaces
 sh int
+
+### Interface Configuration:
+# Enter interface configuration mode
+interface [interface_type] [interface_number]
+int [interface_type] [interface_number]
 
 # Configure an IP address on an interface
 ip address [ip_address] [subnet_mask]
@@ -37,6 +36,7 @@ no shut
 shutdown
 shut
 
+### Routing Configuration:
 # Configure a static route
 ip route [destination_network] [subnet_mask] [next_hop]
 
@@ -47,6 +47,7 @@ router rip
 network [network_address]
 net [network_address]
 
+# Save and Load Configurations:
 # Save the running configuration to the startup configuration
 copy running-config startup-config
 copy run start
@@ -55,6 +56,7 @@ copy run start
 copy startup-config running-config
 copy start run
 
+### Security:
 # Set the enable secret (encrypted) password
 enable secret [password]
 
@@ -67,3 +69,54 @@ line vty 0 4
 
 # Require local authentication for VTY access
 login local
+
+### VLAN Configuration:
+# Create a VLAN
+vlan [vlan_id]
+
+# Assign a name to a VLAN
+name [vlan_name]
+
+# Interface Configuration for VLAN:
+# Enter interface configuration mode for a specific interface
+interface [interface_type] [interface_number]
+int [interface_type] [interface_number]
+
+# Set an interface to access mode (for connecting to a single VLAN)
+switchport mode access
+
+# Assign an access VLAN to an interface
+switchport access vlan [vlan_id]
+
+### NAT Configuration (on a router):
+# Enter interface configuration mode for the external interface
+interface [interface_type] [interface_number]
+int [interface_type] [interface_number]
+
+# Mark the interface as an outside NAT interface
+ip nat outside
+
+# Enter interface configuration mode for the internal interface
+interface [interface_type] [interface_number]
+int [interface_type] [interface_number]
+
+# Mark the interface as an inside NAT interface
+ip nat inside
+
+# Configure a static NAT mapping
+ip nat inside source static [internal_ip] [external_ip]
+
+### Access Control Lists (ACLs):
+# Create an ACL entry to permit traffic
+access-list [number] permit [source] [wildcard]
+
+# Create an ACL entry to deny traffic
+access-list [number] deny [source] [wildcard]
+
+# Create an ACL entry to permit or deny all traffic
+access-list [number] [permit/deny] any
+
+# Apply an ACL to an interface (inbound or outbound)
+# Enter interface configuration mode
+interface [interface_type] [interface_number]
+ip access-group [number] [in/out]
