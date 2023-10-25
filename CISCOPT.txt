@@ -1,0 +1,69 @@
+# Enter privileged EXEC mode
+enable
+en
+
+# Enter global configuration mode
+configure terminal
+conf t
+
+# Enter interface configuration mode
+interface [interface_type] [interface_number]
+int [interface_type] [interface_number]
+
+# Exit configuration mode and return to privileged EXEC mode
+end
+
+# Display the current running configuration
+show running-config
+sh run
+
+# Display information about all interfaces
+show interfaces
+sh int
+
+# Configure an IP address on an interface
+ip address [ip_address] [subnet_mask]
+ip addr [ip_address] [subnet_mask]
+
+# Add a description to the interface
+description [description]
+desc [description]
+
+# Activate (enable) an interface
+no shutdown
+no shut
+
+# Deactivate (disable) an interface
+shutdown
+shut
+
+# Configure a static route
+ip route [destination_network] [subnet_mask] [next_hop]
+
+# Enter RIP routing configuration mode
+router rip
+
+# Specify a network for RIP routing
+network [network_address]
+net [network_address]
+
+# Save the running configuration to the startup configuration
+copy running-config startup-config
+copy run start
+
+# Load the startup configuration into the running configuration
+copy startup-config running-config
+copy start run
+
+# Set the enable secret (encrypted) password
+enable secret [password]
+
+# Create a local user and set the password
+username [username] password [password]
+username [username] pass [password]
+
+# Enter VTY line configuration mode for SSH/TELNET access
+line vty 0 4
+
+# Require local authentication for VTY access
+login local
