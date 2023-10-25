@@ -111,3 +111,33 @@ access-list [number] [permit/deny] any
 
 # Apply an ACL to an interface (inbound or outbound)
 ip access-group [number] [in/out]
+
+### LAN Configuration:
+# Configure a DHCP relay agent to forward DHCP requests to a DHCP server
+ip helper-address [dhcp_server_ip]
+
+# Enter DHCP pool configuration mode to configure DHCP settings
+ip dhcp pool [pool_name]
+
+# Specify the DHCP address range for a pool
+network [network_address] [subnet_mask]
+
+### LAN Troubleshooting:
+# Send ICMP echo requests to a destination IP address to test connectivity
+ping [destination_ip]
+
+# Trace the path to a destination IP address, showing each hop along the way
+traceroute [destination_ip]
+
+# Display the MAC address table to view MAC-to-port mappings on a switch
+show mac address-table
+
+# Show information about directly connected Cisco devices using CDP (Cisco Discovery Protocol)
+show cdp neighbors
+
+# Display information about VLANs configured on a switch
+show vlan
+
+# View the DHCP bindings to see which devices have been assigned IP addresses
+show ip dhcp binding
+
