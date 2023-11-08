@@ -1,9 +1,7 @@
 BANNER HOSTNAME DESCRIPTION
 
 Router(config)# banner motd #MESSAGE#
-
 Router(config)# hostname [hostname]
-
 Router(config)# interface [interface-type] [interface-number] VLAN 10 | G0/0 | F0/1
 Router(config-if)# description [beskrivning]
 
@@ -18,7 +16,7 @@ Router(config)# line console 0
 Router(config-line)# password [lösenord]
 Router(config-line)# login
 
-Router(config)# line vty 0 15
+Router(config)# line vty 0 4
 Router(config-line)# password [lösenord]
 Router(config-line)# login
 
@@ -35,15 +33,29 @@ OSPF
 
 Router(config)# router ospf 1
 Router(config-router)# network 192.168.1.0 0.0.0.255 area 0
-
-TROUBLESHOOT
-
-switchport trunk encapsulation dot1q
+Router(config-router)# network 10.0.0.0 0.255.255.255 area 0
 show ip route
-show ip int br
 
 VLAN
 
-R1(config)# int g0/0.24
-Router(config-subif)# encapsulation dot1Q 24  #Specify VLAN ID 20
- ip address 192.168.1.1 255.255.255.0
+Switch(config)# vlan 20
+Switch(config)# name
+Switch(config)# switchport mode access
+Switch(config)# switchport access vlan 20
+
+Switch(config)# switchport mode trunk
+Switch(config)# switchport trunk allowed vlan 10,20,30
+
+int range fa0/6-9
+
+TROUBLESHOOT
+
+Router(config)# no shutdown
+switchport trunk encapsulation dot1q
+show ip route
+show ip int br
+show vlan br
+show ip ospf neighbor
+show ip ospf interface
+show int trunk
+Switch(config)# ip default-gateway ...
