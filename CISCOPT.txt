@@ -1,0 +1,143 @@
+### Basic CLI Commands:
+# Enter privileged EXEC mode
+enable
+en
+
+# Enter global configuration mode
+configure terminal
+conf t
+
+# Display the current running configuration
+show running-config
+sh run
+
+# Display information about all interfaces
+show interfaces
+sh int
+
+### Interface Configuration:
+# Enter interface configuration mode
+interface [interface_type] [interface_number]
+
+# Configure an IP address on an interface
+ip address [ip_address] [subnet_mask]
+ip addr [ip_address] [subnet_mask]
+
+# Add a description to the interface
+description [description]
+desc [description]
+
+# Activate (enable) an interface
+no shutdown
+no shut
+
+# Deactivate (disable) an interface
+shutdown
+shut
+
+### Routing Configuration:
+# Configure a static route
+ip route [destination_network] [subnet_mask] [next_hop]
+
+# Enter RIP routing configuration mode
+router rip
+
+# Specify a network for RIP routing
+network [network_address]
+net [network_address]
+
+# Save and Load Configurations:
+# Save the running configuration to the startup configuration
+copy running-config startup-config
+copy run start
+
+# Load the startup configuration into the running configuration
+copy startup-config running-config
+copy start run
+
+### Security:
+# Set the enable secret (encrypted) password
+enable secret [password]
+
+# Create a local user and set the password
+username [username] password [password]
+username [username] pass [password]
+
+# Enter VTY line configuration mode for SSH/TELNET access
+line vty 0 4
+
+# Require local authentication for VTY access
+login local
+
+### VLAN Configuration:
+# Create a VLAN
+vlan [vlan_id]
+
+# Assign a name to a VLAN
+name [vlan_name]
+
+# Interface Configuration for VLAN:
+# Set an interface to access mode (for connecting to a single VLAN)
+switchport mode access
+
+# Assign an access VLAN to an interface
+switchport access vlan [vlan_id]
+
+### NAT Configuration (on a router):
+# Enter interface configuration mode for the external interface
+interface [interface_type] [interface_number]
+
+# Mark the interface as an outside NAT interface
+ip nat outside
+
+# Enter interface configuration mode for the internal interface
+interface [interface_type] [interface_number]
+
+# Mark the interface as an inside NAT interface
+ip nat inside
+
+# Configure a static NAT mapping
+ip nat inside source static [internal_ip] [external_ip]
+
+### Access Control Lists (ACLs):
+# Create an ACL entry to permit traffic
+access-list [number] permit [source] [wildcard]
+
+# Create an ACL entry to deny traffic
+access-list [number] deny [source] [wildcard]
+
+# Create an ACL entry to permit or deny all traffic
+access-list [number] [permit/deny] any
+
+# Apply an ACL to an interface (inbound or outbound)
+ip access-group [number] [in/out]
+
+### LAN Configuration:
+# Configure a DHCP relay agent to forward DHCP requests to a DHCP server
+ip helper-address [dhcp_server_ip]
+
+# Enter DHCP pool configuration mode to configure DHCP settings
+ip dhcp pool [pool_name]
+
+# Specify the DHCP address range for a pool
+network [network_address] [subnet_mask]
+
+### LAN Troubleshooting:
+# Send ICMP echo requests to a destination IP address to test connectivity
+ping [destination_ip]
+
+# Trace the path to a destination IP address, showing each hop along the way
+traceroute [destination_ip]
+
+# Display the MAC address table to view MAC-to-port mappings on a switch
+show mac address-table
+
+# Show information about directly connected Cisco devices using CDP (Cisco Discovery Protocol)
+show cdp neighbors
+
+# Display information about VLANs configured on a switch
+show vlan
+
+# View the DHCP bindings to see which devices have been assigned IP addresses
+show ip dhcp binding
+
