@@ -5,7 +5,7 @@ Import-Module GroupPolicy
 $gpoName = "Your GPO Name"
 
 # Specify the path for the GPO report
-$gpoReportPath = "C:\GPOSpecReport.html"
+$gpoReportPath = "C:\Path\to\GPOSpecReport.html"
 
 # Generate the GPO report
 Get-GPOReport -Name $gpoName -ReportType Html -Path $gpoReportPath
