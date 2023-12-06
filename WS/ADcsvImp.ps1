@@ -1,9 +1,6 @@
 # Specify the path for the CSV file
 $csvPath = "C:\Path\To\Import\Users.csv"
 
-# Specify the path to the target Organizational Unit
-$ouPath = "OU=Anvandare,OU=Enskede,DC=jultomten,DC=nu"
-
 try {
     # Import user data from the CSV file
     $userData = Get-Content -Path $csvPath -Encoding UTF8 | Select-Object -Skip 1 | ConvertFrom-Csv -Header FirstName, Surname, PhoneNumber, Address, Postcode, City, Title
@@ -16,6 +13,12 @@ try {
         $samAccountName = ($firstNameForLogon + "." + ($surnameForLogon.Split(' ')[0])).Substring(0, [Math]::Min(20, ($firstNameForLogon + "." + ($surnameForLogon.Split(' ')[0])).Length))
         $samAccountName = $samAccountName.TrimEnd('.') # Remove trailing dot
         $userPrincipalName = $samAccountName + "@jultomten.nu"
+
+            # Determine the OU based on the city
+    switch ($user.City) {
+        "Stockholm" { $ouPath = "OU=Anvandare,OU=Stockholm,DC=jultomten,DC=nu" }
+        "Sundsvall" { $ouPath = "OU=Anvandare,OU=Sundsvall,DC=jultomten,DC=nu" }
+    }
 
         # Print the SamAccountName and UserPrincipalName to the console
         Write-Host "SamAccountName: $samAccountName"
