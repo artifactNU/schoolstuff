@@ -1,5 +1,5 @@
 # Specify the path for the CSV file
-$csvPath = "C:\Path\To\Import\Users.csv"
+$csvPath = "C:\Users\Administrator\Desktop\Users.csv"
 
 try {
     # Import user data from the CSV file
@@ -12,12 +12,12 @@ try {
         $surnameForLogon = $user.Surname.ToLowerInvariant() -replace 'å', 'a' -replace 'ä', 'a' -replace 'ö', 'o' -replace 'Å', 'A' -replace 'Ä', 'A' -replace 'Ö', 'O' -replace 'é', 'e' -replace 'É', 'E' -replace 'Ü', 'u'  -replace ' ', '.'
         $samAccountName = ($firstNameForLogon + "." + ($surnameForLogon.Split(' ')[0])).Substring(0, [Math]::Min(20, ($firstNameForLogon + "." + ($surnameForLogon.Split(' ')[0])).Length))
         $samAccountName = $samAccountName.TrimEnd('.') # Remove trailing dot
-        $userPrincipalName = $samAccountName + "@jultomten.nu"
+        $userPrincipalName = $samAccountName + "@fantasi.nu"
 
             # Determine the OU based on the city
     switch ($user.City) {
-        "Stockholm" { $ouPath = "OU=Anvandare,OU=Stockholm,DC=jultomten,DC=nu" }
-        "Sundsvall" { $ouPath = "OU=Anvandare,OU=Sundsvall,DC=jultomten,DC=nu" }
+        "Stockholm" { $ouPath = "OU=Anvandare,OU=Stockholm,DC=fantasi,DC=nu" }
+        "Sundsvall" { $ouPath = "OU=Anvandare,OU=Sundsvall,DC=fantasi,DC=nu" }
     }
 
         # Print the SamAccountName and UserPrincipalName to the console
