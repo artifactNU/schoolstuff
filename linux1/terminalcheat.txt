@@ -281,3 +281,36 @@ sudo apt install git                    - versionshantering
 sudo apt install vim                    - texteditor
 sudo apt install nano                   - texteditor
 sudo apt install apt-file               - söka efter filer i paket
+
+                                        GIT
+git clone <url>                         - klona repo
+git add <filnamn>                       - lägg till fil
+git commit -m "meddelande"              - commit
+git push                                - pusha till repo
+git push origin <branch>                - pusha till repo branch
+git push origin --delete <branch>       - radera branch från repo
+
+git pull                                - pulla från repo
+git pull --rebase                       - pulla från repo och rebase
+git pull origin <branch>                - pulla från repo branch
+git pull origin <branch> --rebase       - pulla från repo branch och rebase
+git status                              - visa status
+git log                                 - visa logg
+git branch                              - visa branch
+git branch -a                           - visa alla branch
+git branch -d <branch>                  - radera branch
+
+git checkout <file>                     - återställ fil
+git checkout <commit>                   - byt commit
+git checkout <branch>                   - byt branch
+git checkout -b <branch>                - skapa branch
+git merge <branch>                      - merga branch
+
+git remote -v                           - visa remote
+git fetch <remote>                      - hämta remote
+git remote add <remote> <url>           - lägg till remote
+git remote remove <remote>              - ta bort remote
+git remote set-url <remote> <url>       - ändra url för remote
+git remote rename <remote> <remote>     - ändra namn på remote
+git remote show <remote>                - visa info om remote
+
