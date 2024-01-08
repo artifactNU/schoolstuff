@@ -295,7 +295,13 @@ sudo apt install apt-file               - söka efter filer i paket
                                         GIT
 git clone <url>                         - klona repo
 git add <filnamn>                       - lägg till fil
+git restore <filnamn>                   - återställ fil
+
 git commit -m "meddelande"              - commit
+git commit -am "meddelande"             - commit alla filer
+git commit --amend -m "meddelande"      - ändra senaste commit
+git commit --amend --no-edit            - ändra senaste commit utan att ändra meddelande
+
 git push                                - pusha till repo
 git push origin <branch>                - pusha till repo branch
 git push origin --delete <branch>       - radera branch från repo
