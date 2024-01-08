@@ -6,6 +6,10 @@ for i in {1..10}; do
   for j in {1..10}; do
     # Print result
     echo "$i * $j = $((i*j))"
+    if test $i == $j
+    then
+        echo "hej"
+    fi
   done
   # Newline
   echo ""
