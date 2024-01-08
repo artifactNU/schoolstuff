@@ -111,6 +111,15 @@ passwd                                  - ändra lösenord för inloggad använd
 finger <username>                       - visa info om användare
 
 
+                                        GRUPPER
+sudo addgroup <group>                   - skapa grupp
+sudo delgroup <group>                   - radera grupp
+sudo usermod -aG <group> <username>     - lägg till användare i grupp
+sudo usermod -aG sudo <username>        - lägg till användare i sudo gruppen
+groups <username>                       - visa vilka grupper användaren är med i
+groups                                  - visa vilka grupper inloggad användare är med i
+
+
                                         RÄTTIGHETER
 ls -l <filnamn>                         - visa rättigheter för fil
 ls -ld <katalog>                        - visa rättigheter för katalog
@@ -281,6 +290,7 @@ sudo apt install git                    - versionshantering
 sudo apt install vim                    - texteditor
 sudo apt install nano                   - texteditor
 sudo apt install apt-file               - söka efter filer i paket
+
 
                                         GIT
 git clone <url>                         - klona repo
