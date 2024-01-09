@@ -1,0 +1,11 @@
+[Unit]
+Description=Test Daemon
+
+[Service]
+User=root
+WorkingDirectory=/home/simon/
+ExecStart=/home/simon/egetprogram.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
