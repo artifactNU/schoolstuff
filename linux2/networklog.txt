@@ -1,0 +1,2 @@
+mån 15 jan 2024 09:48:10 CET: eno1 is up
+mån 15 jan 2024 09:48:10 CET: wlan0 is down
