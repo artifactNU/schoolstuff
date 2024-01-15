@@ -94,6 +94,7 @@ ip addr add <ip>/<netmask> dev <interface>  - sätt ip och netmask på interface
 ip link set <network interface> up          - starta interface
 ping <ip/domän>                             - pinga ip
 ping -c <antal> <ip/domän>                  - pinga ip/domän <antal> gånger
+
 ssh username@ipaddress                      - ssh in i server
 ssh -p <port> username@ipaddress            - ssh in i server med annan port
 ssh -i <key> username@ipaddress             - ssh in i server med annan key
@@ -101,6 +102,9 @@ ssh-keygen -b 4096                          - skapa ssh key | -b 4096 = 4096 bit
 ssh-copy-id username@ipaddress              - kopiera ssh key till server
 scp -P <port> <filnamn> username@ipaddress:<katalog> - kopiera fil till server
 scp -P <port> username@ipaddress:<filnamn> <katalog> - kopiera fil från server
+
+dig <domän>                                 - visa ip för domän
+nslookup <domän>                            - visa ip för domän
 
 
                                         ANVÄNDARE
