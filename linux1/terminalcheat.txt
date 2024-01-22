@@ -338,3 +338,23 @@ git remote set-url <remote> <url>       - ändra url för remote
 git remote rename <remote> <remote>     - ändra namn på remote
 git remote show <remote>                - visa info om remote
 
+
+                                        GIT UNABLE TO MERGE UNRELATED HISTORIES
+git clone git@github.com:username/repo.git              - klona repo
+git remote add myfork git@github.com:username/repo.git  - lägg till remote
+git remote -vv                                          - visa remote
+
+cp -r ../repo/bak/ .                                    - kopiera innehåll från backup repo
+
+git status                                              - visa status
+git add <filnamn>                                       - lägg till fil
+git commit -m"meddelande"                               - commit
+
+git branch                                              - visa branch
+git checkout -b <branch>                                - skapa branch
+
+git log                                                 - visa logg
+git push myfork <branch>                                - pusha till repo branch
+git status                                              - visa status
+git commit -m"meddelande"                               - commit
+git push myfork                                         - pusha till repo
