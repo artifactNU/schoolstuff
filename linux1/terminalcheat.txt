@@ -358,3 +358,8 @@ git push myfork <branch>                                - pusha till repo branch
 git status                                              - visa status
 git commit -m"meddelande"                               - commit
 git push myfork                                         - pusha till repo
+
+
+docker exec -it 3row-ldap-1 bash
+cd /usr/src/app/
+ldapadd -x -c -D "cn=admin,dc=3row,dc=com" -w Linux4Ever -f ldif_output.ldif
