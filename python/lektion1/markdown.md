@@ -25,10 +25,10 @@
 
 ```zenuml
 @startuml
-    title Secret
-    Alice->Bob: Hello Bob, want to know a secret?
-    Bob->Alice: Yes!
-    Alice->Bob: Then share your public key!
+title Secret
+Alice->Bob: Hello Bob, want to know a secret?
+Bob->Alice: Yes!
+Alice->Bob: Then share your public key!
 @enduml
 ```
 
