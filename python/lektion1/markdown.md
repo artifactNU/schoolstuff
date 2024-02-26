@@ -23,11 +23,14 @@
     Bob->Alice: Yes!
     Alice->Bob: Then share your public key!
 
-[zenuml]
+```zenuml
+@startuml
     title Secret
     Alice->Bob: Hello Bob, want to know a secret?
     Bob->Alice: Yes!
     Alice->Bob: Then share your public key!
+@enduml
+```
 
 ## Texten Flowchart-diagram
     A[Message] --> B{Is it encrypted?}
@@ -36,9 +39,11 @@
     D --> B
     B -- No ----> E[End]
 
+```mermaid
 flowchart TD
     A[Message] --> B{Is it encrypted?}
     B -- Yes --> C[Decrypt]
     C --> D[Awnser]
     D --> B
     B -- No ----> E[End]
+```
