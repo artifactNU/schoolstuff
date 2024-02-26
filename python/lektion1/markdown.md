@@ -23,7 +23,7 @@
     Bob->Alice: Yes!
     Alice->Bob: Then share your public key!
 
-zenuml
+[zenuml]
     title Secret
     Alice->Bob: Hello Bob, want to know a secret?
     Bob->Alice: Yes!
