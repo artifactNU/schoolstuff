@@ -24,12 +24,10 @@
     Alice->Bob: Then share your public key!
 
 ```zenuml
-@startuml
 title Secret
 Alice->Bob: Hello Bob, want to know a secret?
 Bob->Alice: Yes!
 Alice->Bob: Then share your public key!
-@enduml
 ```
 
 ## Texten Flowchart-diagram
@@ -43,7 +41,7 @@ Alice->Bob: Then share your public key!
 flowchart TD
     A[Message] --> B{Is it encrypted?}
     B -- Yes --> C[Decrypt]
-    C --> D[Awnser]
+    C --> D[Anwser]
     D --> B
     B -- No ----> E[End]
 ```
