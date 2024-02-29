@@ -16,13 +16,12 @@ def palindromish(sekvens, grad=None):
     if grad is None or grad > n // 2:
         grad = n // 2
 
+    # sekvens[:grad] tar de första tecknen definierat av grad
+    # sekvens[-grad:][::-1] tar de sista tecknen definierat av grad och vänder på dem
+    # om de två delarna är lika returneras True, om inte retuneras False
+
     # utför kontrollen
     return sekvens[:grad] == sekvens[-grad:][::-1]
-
-
-# sekvens[:grad] tar de första tecknen definierat av grad
-# sekvens[-grad:][::-1] tar de sista tecknen definierat av grad och vänd på dem
-# om de två delarna är lika returneras True, om inte retuneras False
 
 
 if __name__ == "__main__":
