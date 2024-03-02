@@ -1,4 +1,3 @@
-# Skriv funktionen här!
 def palindromish(sekvens, grad=None):
     # kontrollera att sekvens är en sträng eller en lista
     if type(sekvens) not in [
@@ -30,7 +29,6 @@ if __name__ == "__main__":
     # Exempel:
     print(palindromish("radar", 2))
     print(palindromish([1, 2, 3, 2, 1], 3))
-    # Lägg till fler exempel som visar hur din funktion fungerar
     print(palindromish([1, 2, 3, 50, 60, 3, 2, 1], 4))
     print(palindromish("example", 3))
     print(palindromish("naturrutan"))
