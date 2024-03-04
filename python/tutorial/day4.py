@@ -4,12 +4,12 @@ movies = ("Filmer", ["The Matrix", "The Matrix Reloaded", "The Matrix Revolution
 todo = ("Att göra", ["Städa", "Handla", "Träna"])
 bread = ("Bröd", ["Rågbröd", "Kavring", "Limpa"])
 
-lists = [movies, todo, bread]
+listor = [movies, todo, bread]
 
 list_index = 0
 
 while True:
-    titel, lista = lists[list_index]
+    titel, lista = listor[list_index]
     print("----------------")
     print(f"Lista: {titel}")
     print("Val: ")
@@ -29,7 +29,7 @@ while True:
         for rad in lista:
             print(rad)
     elif choice == "3":
-        list_index = (list_index + 1) % len(lists)
+        list_index = (list_index + 1) % len(listor)
     elif choice == "a":
         break
     else:
