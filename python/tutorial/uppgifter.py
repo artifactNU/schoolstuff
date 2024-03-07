@@ -15,12 +15,18 @@
 # print(find_greater_than([-9, -3, 2, 8, 15, 31, 5, 4, 8], 5))
 # ----------------------------------------------------------
 
-lst = [80, 20, 10, 5, 4]
+# lst = [80, 20, 10, 5, 4]
 
-hittat_tal = None
+# hittat_tal = None
 
-for element in lst:
-    if element < 10:
-        if hittat_tal is None:
-            hittat_tal = element
-    print(element)
+# for element in lst:
+#     if element < 10:
+#         if hittat_tal is None:
+#             hittat_tal = element
+#     print(element)
+
+# -----------------------------------------------------------
+
+import numpy
+
+print(f"{numpy.pi:.100f}")
