@@ -2,22 +2,17 @@ def wordfreq(text: str) -> dict:
 
     # splitta texten till en lista av ord
     words = text.split()
-
     # skapa en tom dictionary
     freq = {}
-
     # loopa igenom varje ord i listan
     for word in words:
-
-        # om ordet redan finns i dictionaryn öka frekvensen med 1
+        # om ordet redan finns i dict öka frekvensen med 1
         if word in freq:
             freq[word] += 1
-
-        # annars lägg till ordet i dictionaryn med frekvensen 1
+        # annars lägg till ordet i dict med frekvensen 1
         else:
             freq[word] = 1
-
-    # returnera dictionaryn
+    # returnera dict
     return freq
 
 
