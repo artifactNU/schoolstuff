@@ -1,5 +1,6 @@
 import argparse
 from greppo_logic import greppo_logic
+import sys
 
 
 def main():
@@ -9,9 +10,9 @@ def main():
     )
     parser.add_argument(
         "--search",
+        action="append",
         metavar="S",
         type=str,
-        nargs="+",
         help="string to search for in the files",
     )
     parser.add_argument(
@@ -37,7 +38,7 @@ def main():
         for match in matches:
             print(match)
 
-    return exit_code
+    sys.exit(exit_code)
 
 
 if __name__ == "__main__":
