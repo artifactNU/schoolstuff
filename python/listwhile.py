@@ -7,6 +7,7 @@ index = 0
 while index < len(words):
     print(words[index])
     index += 1
+print(index)
 
 print("--------")
 
