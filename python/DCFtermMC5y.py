@@ -69,13 +69,13 @@ def parse_arguments():
         "-d",
         "--discount_rate",
         type=float,
-        help="Discount rate as a decimal (e.g., 0.1 for 10%).",
+        help="Discount rate as a decimal (e.g., 0.1 for 10%%).",
     )
     parser.add_argument(
         "-g",
         "--growth_rate",
         type=float,
-        help="Perpetuity growth rate as a decimal (e.g., 0.02 for 2%), optional.",
+        help="Perpetuity growth rate as a decimal (e.g., 0.02 for 2%%), optional.",
     )
     parser.add_argument(
         "-i",
