@@ -120,6 +120,13 @@ def main():
             )  # Default expected growth rate if not specified
 
     ticker_data = yf.Ticker(ticker_symbol)
+    if not ticker_data.info or "quoteType" not in ticker_data.info:
+        print(f"No data found for ticker symbol {ticker_symbol}.")
+        return
+    elif "Free Cash Flow" not in ticker_data.cashflow.index:
+        print(f"No 'Free Cash Flow' data found for ticker symbol {ticker_symbol}.")
+        return
+
     cash_flows = (
         ticker_data.cashflow.loc["Free Cash Flow"].dropna().values[:4]
     )  # Assuming values are in descending order
