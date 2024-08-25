@@ -103,8 +103,8 @@ def check_insecure_files(directories):
                         # Check using Unix-style permissions
                         if is_world_readable(full_path):
                             insecure_files.append(full_path)
-                except Exception:
-                    pass
+                except (OSError, PermissionError) as e:
+                    print(f"Error checking permissions for {full_path}: {e}")
     return insecure_files
 
 
