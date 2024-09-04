@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Log files
+*.log
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# Python virtual environments
+venv/
+ENV/
+env/
+.venv/
+.ENV/
+.venv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VSCode settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Ignore src directory log files
+src/*.log
+
+# Ignore system health monitoring files
+network_monitor_warnings.log
+network_monitor.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Cache files
+*.cache
+*.pkl
+
+# Ignore any other files
+*.log.*
+*.log.*
+*.db
+*.sql
+*.sqlite3
