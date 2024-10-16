@@ -1,0 +1,10 @@
+#Hej jag är en kommentar här
+Hej på dig och välkommen till kursen här är vi glada att du är här        # Detta är en kommentar på samma rad som en sträng
+                                #           Detta är en kommentar på en rad för sig själv
+Hej på dig och välkommen till kursen här är vi glada att du är här
+                                #           Detta är en annan kommentar här för denna kurs
+Välkommen till kursen, hej då! Här är en kaka för dig
+    # Kommentaren slutar här
+Detta här är en rad utan kommentar eller slut
+   #       Hej på din mamma
+                            hej mamma
