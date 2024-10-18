@@ -1,6 +1,9 @@
 # Mål: byt ut repeterande specialtecken som :,.; och blanksteg mot endast ett tecken
 # i en fil och skriv ut det till stdout.
 
+
+# Filen körbar med: chmod +x non_repeating_chars.py
+
 # om användaren inte har angett något argument eller fler än ett argument
 #       skriv ett felmeddelande till stderr
 #       avsluta med statuskod
