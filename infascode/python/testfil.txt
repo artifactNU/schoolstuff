@@ -1,0 +1,17 @@
+mina favortdjur::
+
+- katt
+- hund
+- nakenråtta
+
+mina favoritmaträtter: tårta,pizza,sushi,,tacos,kebab
+
+mina favoritdjur   älskar   också min favoritmat
+
+Jag gillar denna for-loop
+
+for(int i = 0; i < 100;;;; i++) {
+    printf("%s", i);
+}
+
+Jag skriver alltid punkt mellan meningar....... Annars blir jag arg
