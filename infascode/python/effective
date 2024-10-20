@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+
+# Path: /usr/local/bin/
+
+import argparse
+import sys
+import re
+
+# definition av format för kommentarer och hjälptext
+formats = [
+    {
+        "long": "hash",
+        "short": "-h",
+        "indicator": r"^\s*#",
+        "help": "Remove comment lines starting with # (Bash, Python)",
+    },
+    {
+        "long": "dbledash",
+        "short": "-d",
+        "indicator": r"^\s*//",
+        "help": "Remove comment lines starting with // (C, Java)",
+    },
+    {
+        "long": "dblminus",
+        "short": "-m",
+        "indicator": r"^\s*--",
+        "help": "Remove comment lines starting with -- (SQL, Lua)",
+    },
+    {
+        "long": "percent",
+        "short": "-p",
+        "indicator": r"^\s*%",
+        "help": "Remove comment lines starting with %% (LaTeX, MATLAB)",
+    },
+    {
+        "long": "apostrophe",
+        "short": "-a",
+        "indicator": r"^\s*'",
+        "help": "Remove comment lines starting with ' (Visual Basic)",
+    },
+    {
+        "long": "basic",
+        "short": "-b",
+        "indicator": r"^\s*(REM|')",
+        "help": "Remove comment lines starting with REM or ' (BASIC)",
+    },
+    {
+        "long": "semicolon",
+        "short": "-s",
+        "indicator": r"^\s*;",
+        "help": "Remove comment lines starting with ; (Lisp, Assembly)",
+    },
+    {
+        "long": "exclamation",
+        "short": "-e",
+        "indicator": r"^\s*!",
+        "help": "Remove comment lines starting with ! (Fortran)",
+    },
+]
+
+
+def filters(lines, indicator):
+    """Filter out lines that match the given indicator."""
+    filtered_lines = []
+    for line in lines:
+        if not re.match(indicator, line):
+            filtered_lines.append(line)
+    return filtered_lines
+
+
+def parse_arguments():
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(
+        prog="effective",
+        description="Remove comments from a file and print it to stdout.",
+        conflict_handler="resolve",
+        epilog="God's final message to His creation: 'We apologize for the inconvenience.'",
+    )
+    for fmt in formats:
+        parser.add_argument(
+            f"--{fmt['long']}", fmt["short"], action="store_true", help=fmt["help"]
+        )
+    parser.add_argument(
+        "-k",
+        "--keep",
+        action="store_true",
+        help="Keep lines that contain only whitespace",
+    )
+    parser.add_argument(
+        "args", nargs="+", help="Search term (optional) followed by the filename"
+    )
+    return parser.parse_args()
+
+
+def main():
+    """Main entry point of the program."""
+    args = parse_arguments()
+
+    # räkna antalet argument
+    if len(args.args) > 2:
+        print(f"{sys.argv[0]}: error: invalid number of arguments", file=sys.stderr)
+        sys.exit(1)
+    # läs in argumenten
+    filename = args.args[-1]
+    search_term = args.args[0] if len(args.args) == 2 else None
+
+    # läs in hela filen
+    try:
+        with open(filename, encoding="utf-8") as f:
+            content = f.readlines()
+    except FileNotFoundError:
+        print(f"{sys.argv[0]}: error: {filename} could not be found.", file=sys.stderr)
+        sys.exit(2)
+
+    # bestäm vilket format som ska användas
+    selected_format = None
+    for fmt in formats:
+        if getattr(args, fmt["long"]):
+            if selected_format:
+                print(
+                    f"{sys.argv[0]}: error: only one format option is allowed",
+                    file=sys.stderr,
+                )
+                sys.exit(3)
+            selected_format = fmt
+
+    # filtrerar bort kommentarsrader
+    if selected_format:
+        indicator = selected_format["indicator"]
+        content = filters(content, indicator)
+    else:
+        # default: testa alla format och använd det som ger minst rader
+        best_content = content
+        for fmt in formats:
+            content_copy = filters(content, fmt["indicator"])
+            if len(content_copy) < len(best_content):
+                best_content = content_copy
+        content = best_content
+
+    # filtrera bort rader med enbart blanka tecken
+    if not args.keep:
+        filtered_content = []
+        for line in content:
+            if line.strip():
+                filtered_content.append(line)
+        content = filtered_content
+
+    # filtrera bort rader som inte innehåller söktermen
+    if search_term:
+        filtered_content = []
+        for line in content:
+            if search_term in line:
+                filtered_content.append(line)
+        content = filtered_content
+    # slå ihop raderna till en sträng
+    content_string = "".join(content)
+    # skriv ut resultatet och avsluta
+    print(content_string, end="")
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
