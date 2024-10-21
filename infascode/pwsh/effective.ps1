@@ -13,7 +13,7 @@
 .EXAMPLE
     PS> .\effective.ps1 -File .\example.txt
     This will return all lines in example.txt that do not start with a hash character.
-.EXAMPLE
+
     PS> .\effective.ps1 -SearchWord "foo" -File .\example.txt
     This will return all lines in example.txt that do not start with a hash character and contain the word "foo".
 #>
@@ -26,11 +26,9 @@ param(
     [string]$SearchWord
 )
 
-$Path = Resolve-Path $File
-
 if ($SearchWord) {
-    Get-Content $Path | Where-Object { $_ -notmatch '^\s*#' -and $_ -match $SearchWord }
+    Get-Content $File | Where-Object { $_ -notmatch '^\s*#' -and $_ -match $SearchWord }
 } else {
-    Get-Content $Path | Where-Object { $_ -notmatch '^\s*#' }
+    Get-Content $File | Where-Object { $_ -notmatch '^\s*#' }
 }
 
