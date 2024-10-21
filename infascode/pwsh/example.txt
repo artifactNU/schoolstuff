@@ -1,0 +1,7 @@
+# Det här är en kommentar
+Det här är en textfil
+# En till kommentar
+Det här ska inte raderas
+Här är en sträng med en kommentar # som inte ska raderas
+
+        # En kommentar på slutet
