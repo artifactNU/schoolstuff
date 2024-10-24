@@ -1,0 +1,9 @@
+__pycache__
+.dockerignore
+.github
+.gitignore
+.git
+README.md
+Dockerfile.api
+Dockerfile.persistance
+docker-compose.yml

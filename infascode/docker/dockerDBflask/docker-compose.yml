@@ -1,0 +1,27 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    networks:
+      - infra
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.persistance
+    volumes:
+      - data:/var/lib/mysql
+    networks:
+      - infra
+volumes:
+  data:
+networks:
+  infra:
+    driver: bridge
