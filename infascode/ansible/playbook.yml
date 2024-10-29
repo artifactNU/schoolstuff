@@ -1,0 +1,95 @@
+---
+- name: Setup Persistence and API
+  hosts: api_server
+  become: yes
+
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install Python3, pip, and MySQL build dependencies
+      apt:
+        name:
+          - python3
+          - python3-pip
+          - python3-flask
+          - python3-peewee
+          - python3-mysqldb
+          - pkg-config
+          - libmysqlclient-dev
+        state: present
+
+- name: Persistence (MySQL)
+  hosts: api_server
+  become: yes
+
+  tasks:
+    - name: Install MySQL server
+      apt:
+        name: mysql-server
+        state: present
+
+    - name: Start and enable MySQL service
+      service:
+        name: mysql
+        state: started
+        enabled: true
+
+    - name: Set up MySQL root password and create database
+      mysql_db:
+        name: todo_db
+        state: present
+        login_user: root
+        login_password: root
+
+    - name: Create MySQL user for API access
+      mysql_user:
+        name: api_user
+        password: api_password
+        priv: "todo_db.*:ALL"
+        state: present
+        login_user: root
+        login_password: root
+
+- name: API Setup
+  hosts: api_server
+  become: yes
+
+  tasks:
+    - name: Copy API application files to server
+      copy:
+        src: ./app/
+        dest: /opt/todo-app/
+        mode: "0755"
+
+    - name: Create a systemd service for Flask API
+      copy:
+        dest: /etc/systemd/system/todo-api.service
+        content: |
+          [Unit]
+          Description=Flask API Service
+          After=network.target mysql.service
+
+          [Service]
+          WorkingDirectory=/opt/todo-app
+          ExecStart=/usr/bin/python3 /opt/todo-app/app.py
+          Restart=always
+          User=www-data
+
+          [Install]
+          WantedBy=multi-user.target
+      notify: restart api service
+
+    - name: Start and enable the API service
+      systemd:
+        name: todo-api
+        state: started
+        enabled: true
+
+  handlers:
+    - name: restart api service
+      systemd:
+        name: todo-api
+        state: restarted
