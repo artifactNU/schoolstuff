@@ -1,0 +1,28 @@
+services:
+  persistance:
+    image: mysql:8.0
+    container_name: persistance
+    networks:
+      - infra
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=todo_db
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: api
+    networks:
+      - infra
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app.py:/app/app.py
+      - ./requirements.txt:/app/requirements.txt
+
+networks:
+  infra:
+    driver: bridge
